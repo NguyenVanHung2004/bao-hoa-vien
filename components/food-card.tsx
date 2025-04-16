@@ -21,7 +21,11 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
 
   const handleAddToCart = () => {
     addItem({ name, description, price, image });
-    toast.success(`Đã thêm ${name} vào giỏ hàng!`);
+    toast.success(`Đã thêm ${name} vào giỏ hàng!`, {
+      position: "bottom-left",
+      duration: 2000,
+      className: "sm:top-0 sm:bottom-auto sm:left-0 sm:right-auto"
+    });
   };
 
   return (
