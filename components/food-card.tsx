@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { ShoppingCart } from "lucide-react"
+import { useCart } from "@/lib/cart-context"
+import { toast } from "sonner"
 
 interface FoodCardProps {
   name: string
@@ -13,6 +17,13 @@ interface FoodCardProps {
 }
 
 export function FoodCard({ name, description, price, image, badge }: FoodCardProps) {
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({ name, description, price, image });
+    toast.success(`Đã thêm ${name} vào giỏ hàng!`);
+  };
+
   return (
     <Card className="overflow-hidden transition-all hover:shadow-lg">
       <div className="relative">
@@ -35,7 +46,7 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
         <div className="text-lg font-bold text-primary">{price}</div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button variant="outline" className="w-full gap-2">
+        <Button variant="outline" className="w-full gap-2" onClick={handleAddToCart}>
           <ShoppingCart className="h-4 w-4" />
           Đặt món
         </Button>
