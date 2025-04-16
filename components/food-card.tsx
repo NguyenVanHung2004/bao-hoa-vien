@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { ShoppingCart } from "lucide-react"
 import { useCart } from "@/lib/cart-context"
 import { toast } from "sonner"
@@ -32,7 +32,7 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
   };
 
   return (
-    <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
+    <Card className="h-full flex flex-col overflow-visible transition-all hover:shadow-lg">
       <div className="relative">
         <div className="aspect-square sm:aspect-video overflow-hidden">
           <Image
@@ -52,17 +52,18 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
       <CardContent className="p-3 pt-2 sm:p-4 sm:pt-2">
         <div className="text-base font-bold text-primary sm:text-lg">{price}</div>
       </CardContent>
-      <CardFooter className="p-3 pt-0 sm:p-4 sm:pt-0 relative">
+      <div className="p-3 pt-0 sm:p-4 sm:pt-0 mt-auto">
         <Button 
           variant="outline" 
           size="sm" 
-          className="w-full gap-1 text-xs sm:text-sm sm:gap-2 z-10" 
+          className="w-full gap-1 text-xs sm:text-sm sm:gap-2" 
           onClick={handleAddToCart}
+          style={{ WebkitTransform: 'translateZ(0)' }}
         >
           <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
           Đặt món
         </Button>
-      </CardFooter>
+      </div>
     </Card>
   )
 }
