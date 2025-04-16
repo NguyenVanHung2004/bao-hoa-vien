@@ -27,37 +27,37 @@ export default function MenuPage() {
                 <TabsList className="flex w-full overflow-x-auto scrollbar-hide p-1">
                   <TabsTrigger
                     value="sui-cao"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-primary"
+                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
                   >
                     Sủi cảo
                   </TabsTrigger>
                   <TabsTrigger
                     value="mi"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-primary"
+                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
                   >
                     Mì
                   </TabsTrigger>
                   <TabsTrigger
                     value="dimsum"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-primary"
+                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
                   >
                     Dimsum
                   </TabsTrigger>
                   <TabsTrigger
                     value="mon-xao"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-primary"
+                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
                   >
                     Món xào
                   </TabsTrigger>
                   <TabsTrigger
                     value="com"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-primary"
+                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
                   >
                     Cơm
                   </TabsTrigger>
                   <TabsTrigger
                     value="do-uong"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-primary"
+                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
                   >
                     Đồ uống
                   </TabsTrigger>
