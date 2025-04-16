@@ -81,9 +81,9 @@ export default function CheckoutPage() {
         throw new Error(result.message || "Có lỗi xảy ra khi gửi đơn hàng");
       }
 
-      toast.success("Đặt hàng thành công! Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.");
+      toast.success(`Đặt hàng thành công! Mã đơn hàng của bạn là: ${result.orderId}`);
       clearCart();
-      router.push("/order-success");
+      router.push(`/order-success?orderId=${result.orderId}`);
     } catch (error) {
       console.error("Error submitting order:", error);
       toast.error("Có lỗi xảy ra khi đặt hàng. Vui lòng thử lại sau.");

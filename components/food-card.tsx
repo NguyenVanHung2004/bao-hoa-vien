@@ -25,11 +25,11 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
   };
 
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg">
+    <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
       <div className="relative">
-        <div className="aspect-video overflow-hidden">
+        <div className="aspect-square sm:aspect-video overflow-hidden">
           <Image
-            src={image || "/placeholder.svg"}
+            src={image || "/logo.png"}
             alt={name}
             width={600}
             height={400}
@@ -38,16 +38,21 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
         </div>
         {badge && <Badge className="absolute top-2 right-2 bg-primary text-white">{badge}</Badge>}
       </div>
-      <CardHeader className="p-4 pb-0">
-        <h3 className="text-xl font-bold">{name}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
+      <CardHeader className="p-3 pb-0 sm:p-4 sm:pb-0">
+        <h3 className="text-base font-bold sm:text-xl line-clamp-1">{name}</h3>
+        <p className="text-xs text-muted-foreground sm:text-sm line-clamp-1">{description}</p>
       </CardHeader>
-      <CardContent className="p-4 pt-2">
-        <div className="text-lg font-bold text-primary">{price}</div>
+      <CardContent className="p-3 pt-2 sm:p-4 sm:pt-2">
+        <div className="text-base font-bold text-primary sm:text-lg">{price}</div>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
-        <Button variant="outline" className="w-full gap-2" onClick={handleAddToCart}>
-          <ShoppingCart className="h-4 w-4" />
+      <CardFooter className="p-3 pt-0 sm:p-4 sm:pt-0">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="w-full gap-1 text-xs sm:text-sm sm:gap-2" 
+          onClick={handleAddToCart}
+        >
+          <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
           Đặt món
         </Button>
       </CardFooter>

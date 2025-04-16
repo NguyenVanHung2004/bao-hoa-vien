@@ -73,6 +73,24 @@ const config: Config = {
       },
     },
   },
+  plugins: [
+    require("tailwindcss-animate"),
+    // Thêm ẩn thanh cuộn cho tabs trên mobile
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string | object>>) => void }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+          /* Firefox */
+          'scrollbar-width': 'none',
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          }
+        }
+      })
+    }
+  ],
 }
 
 export default config

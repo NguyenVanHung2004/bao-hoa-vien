@@ -33,10 +33,27 @@ export async function POST(request: Request) {
       );
     }
 
+    // Tạo ID đơn hàng dựa trên timestamp và số ngẫu nhiên
+    const orderId = `BHV${Date.now().toString().slice(-6)}${Math.floor(Math.random() * 1000)}`;
+    
+    // Lấy thời gian và ngày hiện tại
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('vi-VN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    const formattedTime = now.toLocaleTimeString('vi-VN', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
     // Tạo tin nhắn đơn hàng
     const { customerInfo, items, totalPrice } = data;
     
     let message = `🍜 *ĐƠN HÀNG MỚI* 🍜\n\n`;
+    message += `*Mã đơn:* ${orderId}\n`;
+    message += `*Thời gian:* ${formattedTime} - ${formattedDate}\n\n`;
     message += `*Thông tin khách hàng:*\n`;
     message += `- Họ tên: ${customerInfo.name}\n`;
     message += `- SĐT: ${customerInfo.phone}\n`;
@@ -83,7 +100,7 @@ export async function POST(request: Request) {
       );
     }
     
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, orderId: orderId });
   } catch (error) {
     console.error("Error sending Telegram message:", error);
     return NextResponse.json(
