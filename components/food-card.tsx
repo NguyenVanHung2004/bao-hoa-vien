@@ -21,10 +21,13 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
 
   const handleAddToCart = () => {
     addItem({ name, description, price, image });
+    
+    // Kiểm tra xem thiết bị có phải là mobile không
+    const isMobile = window.innerWidth < 640;
+    
     toast.success(`Đã thêm ${name} vào giỏ hàng!`, {
-      position: "bottom-left",
+      position: isMobile ? "bottom-left" : "top-left",
       duration: 2000,
-      className: "sm:top-0 sm:bottom-auto sm:left-0 sm:right-auto"
     });
   };
 
