@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -44,9 +45,11 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white">
-              Xem thực đơn
-            </Button>
+            <Link href="/menu">
+              <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white">
+                Xem thực đơn
+              </Button>
+            </Link>
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
