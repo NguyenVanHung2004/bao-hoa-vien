@@ -52,11 +52,11 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
       <CardContent className="p-3 pt-2 sm:p-4 sm:pt-2">
         <div className="text-base font-bold text-primary sm:text-lg">{price}</div>
       </CardContent>
-      <CardFooter className="p-3 pt-0 sm:p-4 sm:pt-0">
+      <CardFooter className="p-3 pt-0 sm:p-4 sm:pt-0 relative">
         <Button 
           variant="outline" 
           size="sm" 
-          className="w-full gap-1 text-xs sm:text-sm sm:gap-2" 
+          className="w-full gap-1 text-xs sm:text-sm sm:gap-2 z-10" 
           onClick={handleAddToCart}
         >
           <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
