@@ -20,6 +20,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Nhà hàng Bảo Hoa Viên",
   description: "Nhà hàng Bảo Hoa Viên - Không gian ẩm thực đậm chất truyền thống Việt Nam.",
+  other: {
+    'google-site-verification': 'P-aKY8rm0gnIFHUsKfOp1nx3F0GyVRyl6xoJUHBsPHc',
+  },
   keywords: ["Bảo Hoa Viên", "Nhà hàng Bảo Hoa Viên", "Bao Hoa Vien", "Nha hang Bao Hoa Vien"],
   openGraph: {
     title: "Nhà hàng Bảo Hoa Viên",
