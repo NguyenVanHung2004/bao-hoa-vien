@@ -18,7 +18,10 @@ export async function POST(req: NextRequest) {
 
       // Cập nhật nội dung tin nhắn với trạng thái đã hoàn thành
       const originalText = callback.message?.text || "";
-      const updatedText = `✅ *ĐƠN ĐÃ HOÀN THÀNH*\n\n${originalText}`;
+      const lines = originalText.split("\n");
+      const contentWithoutTitle = lines.slice(1).join("\n");
+      
+      const updatedText = `✅ *ĐƠN ĐÃ HOÀN THÀNH*\n\n${contentWithoutTitle}`;
 
       const editResponse = await fetch(
         `https://api.telegram.org/bot${botToken}/editMessageText`,

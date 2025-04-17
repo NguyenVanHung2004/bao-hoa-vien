@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const { customerInfo, items, totalPrice } = data;
     
-    let message = `🍜 *ĐƠN HÀNG MỚI* 🍜\n\n`;
+    let message = `🚨 *ĐƠN HÀNG MỚI* 🚨\n\n`;
     message += `*Mã đơn:* ${orderId}\n`;
     message += `*Thời gian:* ${formattedTime} - ${formattedDate}\n\n`;
     message += `*Thông tin khách hàng:*\n`;
