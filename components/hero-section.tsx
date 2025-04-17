@@ -1,23 +1,22 @@
 "use client"
 
-import { useState } from "react"
+// import { useState } from "react"
 import { motion } from "framer-motion"
-
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar } from "@/components/ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { format } from "date-fns"
-import { vi } from "date-fns/locale"
-import { CalendarIcon } from "lucide-react"
-import { useRouter } from "next/navigation"
+// import { Calendar } from "@/components/ui/calendar"
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+// import { format } from "date-fns"
+// import { vi } from "date-fns/locale"
+// import { CalendarIcon } from "lucide-react"
+
 export function HeroSection() {
-  const [date, setDate] = useState<Date>()
-  const router = useRouter()
+  // const [date, setDate] = useState<Date>()
+
   return (
     <section className="relative">
       <div className="absolute inset-0 bg-black/60 z-10" />
-      <div className="relative h-[80vh]   bg-cover bg-center" style={{ backgroundImage: "url('/section-2.jpg')" }}>
+      <div className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('/section-2.jpg')" }}>
         <div className="container relative z-20 flex h-full flex-col items-center justify-center text-center text-white">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Badge className="mb-4 bg-[#dc141e]/80 text-white hover:bg-[#dc141e]/70">Chào mừng đến với</Badge>
@@ -30,26 +29,42 @@ export function HeroSection() {
           >
             Bảo Hoa Viên
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             className="mt-4 max-w-3xl text-xl text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Đồ ăn Trung Hoa chính thống tại Hà Nội
-          </motion.p>
+            Đồ ăn Trung Hoa
+          </motion.p> */}
           <motion.div
-            className="mt-8 flex flex-wrap justify-center gap-4"
+            className="pt-12 flex flex-wrap justify-center gap-4 relative z-50"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white" onClick={ () => router.push("/menu")}>
-              Xem thực đơn
-            </Button>
-            <Popover>
+            {/* Sử dụng thẻ a thuần túy với href để đảm bảo hoạt động trên mọi thiết bị */}
+            <a
+              href="/menu"
+              className="inline-block pointer-events-auto relative z-50"
+              onClick={(e) => {
+                // Fallback nếu href không hoạt động
+                e.preventDefault()
+                window.location.href = "/menu"
+              }}
+            >
+              <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white pointer-events-auto">
+                Xem thực đơn
+              </Button>
+            </a>
+
+            {/* <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-white border-white hover:bg-white/10 relative z-50 pointer-events-auto"
+                >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {date ? format(date, "PPP", { locale: vi }) : "Đặt bàn ngay"}
                 </Button>
@@ -57,11 +72,13 @@ export function HeroSection() {
               <PopoverContent className="w-auto p-0 bg-white" align="center">
                 <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
               </PopoverContent>
-            </Popover>
+            </Popover> */}
           </motion.div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+
+      {/* Đảm bảo SVG wave không chặn các nút */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="text-white">
           <path
             fill="currentColor"

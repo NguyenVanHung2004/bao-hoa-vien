@@ -20,7 +20,7 @@ export function TestimonialCard({ name, role, content, rating, image }: Testimon
           ))}
           {rating % 1 !== 0 && <StarHalf className="h-5 w-5 fill-yellow-400 text-yellow-400" />}
         </div>
-        <p className="text-muted-foreground">{content}</p>
+        <p className="text-muted-foreground line-clamp-4  min-h-[6.5rem]">{content}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0 flex items-center gap-4">
         <div className="h-12 w-12 overflow-hidden rounded-full">

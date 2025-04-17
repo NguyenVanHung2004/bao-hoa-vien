@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-
+import lineClamp from '@tailwindcss/line-clamp'
 const config: Config = {
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -75,6 +75,7 @@ const config: Config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    lineClamp,
     // Thêm ẩn thanh cuộn cho tabs trên mobile
     function ({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string | object>>) => void }) {
       addUtilities({

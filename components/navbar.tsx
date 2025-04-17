@@ -34,7 +34,7 @@ export function Navbar() {
     <header className="sticky top-0 flex justify-center items-center z-50 w-full border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2 font-bold text-xl text-primary">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogoClick}>
+          <div className="flex items-center gap-2 cursor-pointer pl-4" onClick={handleLogoClick}>
             <Image src="/logo.png" alt="Bảo Hoa Viên Logo" width={40} height={40} className="rounded-full" />
             <span>Bảo Hoa Viên</span>
           </div>
@@ -61,7 +61,7 @@ export function Navbar() {
             <Button variant="outline" size="icon" className="relative">
               <ShoppingCart className="h-5 w-5 text-[#dc141e]" />
               {totalItems > 0 && (
-                <Badge className="absolute -top-2 -right-2 px-2 py-1 h-6 min-w-6 flex items-center justify-center rounded-full">
+                <Badge className="absolute -top-2 -right-2 px-1 py-1 h-4 min-w-4 flex items-center justify-center rounded-full bg-[#dc141e]">
                   {totalItems}
                 </Badge>
               )}
@@ -147,7 +147,7 @@ export function Navbar() {
                     >
                       <div className="flex items-center justify-between w-full">
                         <span>Giỏ hàng</span>
-                        {totalItems > 0 && <Badge className="ml-auto">{totalItems}</Badge>}
+                        {totalItems > 0 && <Badge className="ml-auto bg-[#dc141e]" >{totalItems}</Badge>}
                       </div>
                     </div>
                   </div>
@@ -171,6 +171,15 @@ export function Navbar() {
                       <div className="text-sm">
                         <p className="font-medium">Cơ sở Giảng Võ</p>
                         <p className="text-muted-foreground">114A1 Giảng Võ, Ba Đình</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <MapPin className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="text-sm">
+                        <p className="font-medium">Cơ sở Tô Ngọc Vân </p>
+                        <p className="text-muted-foreground">44/52 Tô Ngọc Vân, Tây Hồ</p>
                       </div>
                     </div>
                   </div>

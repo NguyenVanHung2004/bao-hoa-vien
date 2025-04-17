@@ -39,15 +39,15 @@ export default function Home() {
       name: "Cơ sở Giảng Võ",
       address: "114A1 Giảng Võ, Ba Đình, Hà Nội",
       phone: "+84 96 933 98 58",
-      mapUrl: "https://maps.app.goo.gl/JZjdcVX5Z5Z5Z5Z5Z",
+      mapUrl: "https://maps.app.goo.gl/Pdr6eW8qbbj5koKp7",
       image: "/co-so-giang-vo.jpg",
     },
     {
       name: "Cơ sở Tô Ngọc Vân",
-      address: "46/52 Tô Ngọc Vân, Tây Hồ, Hà Nội",
+      address: "44/52 Tô Ngọc Vân, Tây Hồ, Hà Nội",
       phone: "+84 96 933 98 58",
-      mapUrl: "https://maps.app.goo.gl/JZjdcVX5Z5Z5Z5Z5Z",
-      image: "/co-so-tongocvan.jpg",
+      mapUrl: "https://maps.app.goo.gl/kDt9yHzK8zDRVTcL8",
+      image: "/co-so-to-ngoc-van.jpg",
     },
   ]
   return (
@@ -186,7 +186,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="testimonials" className="py-16 md:py-24 bg-white flex justify-center items-center">
+        <section id="testimonials" className="py-16 md:py-24 bg-white flex justify-center items-center px-4">
           <div className="container">
             <div className="flex flex-col items-center text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Khách hàng nói gì</h2>
@@ -195,32 +195,50 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <TestimonialCard
-                name="Nguyễn Văn A"
-                role="Khách hàng thường xuyên"
-                content="Sủi cảo tại đây thật sự rất ngon, nhân nhiều và thơm. Không gian nhà hàng rộng rãi, thoáng mát."
-                rating={5}
-                image="/avatar-1.jpg"
-              />
-              <TestimonialCard
-                name="Trần Thị B"
-                role="Foodie"
-                content="Đồ ăn ngon, giá cả hợp lý. Nhân viên phục vụ nhiệt tình, chu đáo. Chắc chắn sẽ quay lại!"
-                rating={4}
-                image="/avatar-2.jpg"
-              />
-              <TestimonialCard
-                name="Lê Văn C"
-                role="Doanh nhân"
-                content="Đồ ăn Trung Hoa chính thống, không bị Việt hóa. Hương vị đúng điệu, sẽ giới thiệu cho bạn bè."
-                rating={5}
-                image="/avatar-3.jpg"
-              />
+              <a
+                href="https://maps.app.goo.gl/GZ17VMXJotbx3BuY8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TestimonialCard
+                  name="Nguyễn Hằng"
+                  role="Local Guide"
+                  content="Giá khá rẻ so với chất lượng , đồ ăn ngon . Nhất là món đậu phụ tứ xuyên , và cơm rang rất nên thử."
+                  rating={5}
+                  image="/avatar-1.png"
+                />
+              </a>
+              <a
+                href="https://maps.app.goo.gl/GTJfRHkBfmJR19YH7"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                <TestimonialCard
+                  name="Perry Nguyen"
+                  role="Local Guide"
+                  content="An authentic chinese restaurant with reasonable prices and handmade delicacies. The taste of the spicy food are hot but no burn. Absolutely delicious."
+                  rating={5}
+                  image="/avatar-2.png"
+                />
+              </a>
+              <a
+                href="https://maps.app.goo.gl/3W5nhLCyAdpLuCkU8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TestimonialCard
+                  name="Mai Xuan"
+                  role="Local Guide"
+                  content="Đồ ăn khá ngon, hợp khẩu vị mình. Thấy ông chủ bảo bánh bao kim sa này là men tự nhiên, ăn cũng ngon lắm"
+                  rating={5}
+                  image="/avatar-3.png"
+                />
+              </a>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="py-16 md:py-24 bg-slate-50 flex justify-center items-center">
+        <section id="contact" className="py-16 md:py-24 bg-slate-50 flex justify-center items-center px-4">
           <div className="container">
             <div className="flex flex-col items-center text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Liên hệ với chúng tôi</h2>
@@ -263,7 +281,7 @@ export default function Home() {
                         <Clock className="h-5 w-5 text-[#dc141e]" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium">10:00 - 22:00 hàng ngày</p>
+                        <p className="text-sm font-medium">9:00 - 22:00 hàng ngày</p>
                       </div>
                     </div>
                   </CardContent>

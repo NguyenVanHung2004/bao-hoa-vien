@@ -34,18 +34,18 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
   return (
     <Card className="flex flex-col overflow-visible hover:shadow-lg">
       <div className="relative">
-        <div className="aspect-square md:aspect-[4/3] overflow-hidden">
+        <div className="aspect-square md:aspect-[1/1] overflow-hidden">
           <Image
             src={image || "/logo.png"}
             alt={name}
-            width={600}
+            width={400}
             height={400}
             loading = 'lazy' 
             quality={80}
             className="h-full w-full object-cover transition-transform hover:scale-105"
           />
         </div>
-        {badge && <Badge className="absolute top-2 right-2 bg-primary text-white">{badge}</Badge>}
+        {badge && <Badge className="absolute top-2 right-2 bg-white text-[#dc141e]">{badge}</Badge>}
       </div>
       <div className="flex flex-col p-1.5 pb-1.5 md:p-2">
         <h3 className="text-sm font-bold line-clamp-1 md:text-base">{name}</h3>

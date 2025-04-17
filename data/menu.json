@@ -3,57 +3,67 @@
     {
       "id": "sui-cao",
       "name": "Sủi cảo",
-      "items": [
+      "items": [    
         {
-          "id": "sui-cao-chien",
-          "name": "Sủi cảo chiên",
-          "description": "Fried Dumplings",
+          "id": "sui-cao-heo-cai-thao-chien",
+          "name": "Sủi cảo heo cải thảo chiên",
+          "description": "Pork Dumpling with Napa Cabbage",
+          "price": "49k",
+          "image": "/sui-cao-chien.jpg"
+          
+        },
+        {
+          "id": "sui-cao-heo-he-chien",
+          "name": "Sủi cảo heo hẹ chiên",
+          "description": "Fried Pork Dumpling with Chives",
           "price": "59k",
-          "image": "/ba-chi-hai-lua.jpg",
+          "image": "/sui-cao-chien.jpg"
+          
+        },
+        {
+          "id": "sui-cao-bo-hanh-chien",
+          "name": "Sủi cảo bò hành chiên",
+          "description": "Fried Beef Dumpling with Onion",
+          "price": "59k",
+          "image": "/sui-cao-chien.jpg",
           "badge": "Bán chạy"
         },
         {
-          "id": "sui-cao-hap",
-          "name": "Sủi cảo hấp",
-          "description": "Steamed Dumplings",
+          "id": "sui-cao-tom-chien",
+          "name": "Sủi cảo tôm chiên",
+          "description": "Fried Shrimp Dumpling",
           "price": "49k",
-          "image": "/thit-lon-chua-ngot.jpg"
+          "image": "/sui-cao-chien.jpg",
+          "badge": "Bán chạy"
         },
         {
           "id": "sui-cao-heo-cai-thao",
           "name": "Sủi cảo heo cải thảo, bắp",
-          "description": "Pork Dumpling with Napa Cabbage",
+          "description": "Steamed Pork Dumpling with Napa Cabbage",
           "price": "39k",
-          "image": "/ga-cay-trung-khanh.jpg"
+          "image": "/sui-cao-heo-cai-thao-hap.jpg"
         },
         {
           "id": "sui-cao-heo-he",
           "name": "Sủi cảo heo hẹ",
-          "description": "Pork Dumpling with Chives",
+          "description": "Steamed Pork Dumpling with Chives",
           "price": "39k", 
-          "image": "/thit-lon-chua-ngot.jpg"
+          "image": "/sui-cao-heo-cai-thao-hap.jpg"
         },
         {
           "id": "sui-cao-tom",
           "name": "Sủi cảo tôm",
-          "description": "Shrimp Dumpling",
+          "description": "Steamed Shrimp Dumpling",
           "price": "49k",
-          "image": "/ga-cung-bao.jpg",
+          "image": "/sui-cao-tom-hap.jpg",
           "badge": "Bán chạy"
         },
         {
           "id": "sui-cao-bo-hanh",
           "name": "Sủi cảo bò hành",
-          "description": "Beef Dumpling with Onion",
+          "description": "Steamed Beef Dumpling with Onion",
           "price": "49k",
-          "image": "/dau-tu-xuyen.jpg"
-        },
-        {
-          "id": "hoanh-thanh-chien",
-          "name": "Hoành thánh chiên",
-          "description": "Fried Wontons",
-          "price": "49k",
-          "image": "/com-xa-xiu.jpg"
+          "image": "/sui-cao-heo-cai-thao-hap.jpg"
         }
       ]
     },
@@ -66,65 +76,79 @@
           "name": "Mì sủi cảo bò hành",
           "description": "Beef Dumpling with Onion Noodle",
           "price": "69k",
-          "image": "/thit-lon-chua-ngot.jpg"
+          "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-tom",
           "name": "Mì sủi cảo tôm",
           "description": "Shrimp Dumpling Noodle",
           "price": "69k",
-          "image": "/ba-chi-hai-lua.jpg",
-          "badge": "Mới"
-        },
-        {
-          "id": "mi-dac-biet",
-          "name": "Mì đặc biệt",
-          "description": "Special Noodle",
-          "price": "79k",
-          "image": "/ga-cung-bao.jpg"
+          "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-heo-cai-thao",
           "name": "Mì sủi cảo heo cải thảo, bắp",
           "description": "Pork Dumpling with Napa Cabbage Noodle",
           "price": "39k",
-          "image": "/ga-cay-trung-khanh.jpg"
+          "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-heo-he",
           "name": "Mì sủi cảo heo hẹ",
           "description": "Pork Dumpling with Chives Noodle",
           "price": "39k",
-          "image": "/dau-tu-xuyen.jpg"
+          "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-hoanh-thanh",
           "name": "Mì hoành thánh",
           "description": "Wonton Noodle",
           "price": "49k",
-          "image": "/thit-lon-chua-ngot.jpg"
+          "image": "/mi-hoanh-thanh.jpg"
         },
         {
           "id": "mi-xa-xiu",
           "name": "Mì xá xíu",
           "description": "Chinese BBQ Pork Noodle",
           "price": "49k",
-          "image": "/com-xa-xiu.jpg"
+          "image": "/mi-xa-xiu.jpg"
         },
         {
           "id": "mi-tom-tuoi",
           "name": "Mì tôm tươi",
           "description": "Shrimp Noodle",
           "price": "59k",
-          "image": "/ba-chi-hai-lua.jpg"
+          "image": "/mi-tom-tuoi.jpg"
         },
         {
           "id": "mi-bo-cay-te",
           "name": "Mì bò cay tê",
           "description": "Spicy Beef Noodle",
           "price": "59k",
-          "image": "/thit-lon-chua-ngot.jpg",
+          "image": "/mi-bo-cay-te.jpg",
           "badge": "Cay"
+        },
+        {
+          "id": "mi-dac-biet",
+          "name": "Mì đặc biệt",
+          "description": "Special Noodle",
+          "price": "79k",
+          "image": "/mi-dac-biet.jpg"
+        },
+        {
+          "id": "mi-xao-bo",
+          "name": "Mì xào bò",
+          "description": "Stir-fried Noodle with Beef",
+          "price": "69k",
+          "image": "/mi-xao-bo.jpg"
+        },
+        {
+          "id": "mi-xao-hai-san",
+          "name": "Mì xào hải sản",
+          "description": "Stir-fried Noodle with Seafood",
+          "price": "79k",
+          "image": "/mi-xao-hai-san.jpg",
+          "badge": "Đặc biệt"
         }
       ]
     },
@@ -137,14 +161,15 @@
           "name": "Bánh bao kim sa",
           "description": "Cantonese Spring Rolls",
           "price": "45k",
-          "image": "/thit-lon-chua-ngot.jpg"
+          "image": "/banh-bao-kim-sa.jpg",
+          "badge":"Bán chạy"
         },
         {
           "id": "ha-cao-tom",
           "name": "Há cảo tôm",
           "description": "Shrimp Dumplings",
           "price": "55k",
-          "image": "/ga-cay-trung-khanh.jpg",
+          "image": "/ha-cao-tom.jpg",
           "badge": "Bán chạy"
         },
         {
@@ -152,35 +177,42 @@
           "name": "Bánh bao xá xíu",
           "description": "Char Siu Bao",
           "price": "35k",
-          "image": "/dau-tu-xuyen.jpg"
+          "image": "/banh-bao-xa-xiu.jpg"
         },
         {
           "id": "ha-cao-so-diep",
           "name": "Há cảo sò điệp",
           "description": "Scallop dumpling",
           "price": "59k",
-          "image": "/com-xa-xiu.jpg"
+          "image": "/ha-cao-so-diep.jpg"
         },
         {
           "id": "chan-ga-hap-tau-xi",
           "name": "Chân gà hấp tàu xì",
           "description": "Chicken feet dimsum",
           "price": "59k",
-          "image": "/ba-chi-hai-lua.jpg"
+          "image": "/chan-ga-tau-xi.jpg"
+        },
+        {
+          "id": "hoanh-thanh-chien",
+          "name": "Hoành thánh chiên",
+          "description": "Fried Wontons",
+          "price": "49k",
+          "image": "/hoanh-thanh-chien.jpg"
         },
         {
           "id": "tau-hu-ky-cuon-tom-chien",
           "name": "Tàu hủ ky cuốn tôm chiên",
           "description": "Fried tofu skin roll with shrimp",
           "price": "49k",
-          "image": "/ga-cung-bao.jpg"
+          "image": "/tau-hu-chien.jpg"
         },
         {
           "id": "xiu-mai",
           "name": "Xíu mại",
           "description": "Siu Mai",
           "price": "49k",
-          "image": "/com-xa-xiu.jpg"
+          "image": "/xiu-mai.jpg"
         }
       ]
     },
@@ -224,6 +256,41 @@
           "description": "Pork",
           "price": "89k",
           "image": "/ba-chi-hai-lua.jpg"
+        },
+        {
+          "id": "bo-xao-cay-te",
+          "name": "Bò xào cay tê",
+          "description": "Spicy Stir-fried Beef",
+          "price": "89k",
+          "image": "/bo-xao-cay-te.jpg"
+        },
+        {
+          "id": "suon-heo-chua-ngot",
+          "name": "Sườn heo xào chua ngọt",
+          "description": "Sweet & Sour Pork Ribs",
+          "price": "99k",
+          "image": "/suon-heo-chua-ngot.jpg"
+        },
+        {
+          "id": "thit-xien-dong-bac",
+          "name": "Thịt xiên Đông Bắc",
+          "description": "Dongbei Skewers",
+          "price": "99k",
+          "image": "/thit-xien-dong-bac.jpg"
+        },
+        {
+          "id": "bo-om-cay",
+          "name": "Bò om cay",
+          "description": "Beef slices in Spicy Soup",
+          "price": "129k",
+          "image": "/bo-om-cay.jpg"
+        },
+        {
+          "id": "bo-thiet-ban",
+          "name": "Bò thiết bản",
+          "description": "Chinese Sizzling Beef ",
+          "price": "129k",
+          "image": "/bo-thiet-ban.jpg"
         }
       ]
     },
@@ -232,33 +299,18 @@
       "name": "Cơm",
       "items": [
         {
-          "id": "com-ga-hap-tao-xi",
-          "name": "Cơm gà hấp tảo xì",
-          "description": "Chicken rice steamed",
-          "price": "59k",
-          "image": "/dish-7.jpg"
-        },
-        {
-          "id": "com-xa-xiu",
-          "name": "Cơm xá xíu",
-          "description": "Char Siu Rice",
-          "price": "65k",
-          "image": "/com-xa-xiu.jpg",
-          "badge": "Đặc biệt"
-        },
-        {
           "id": "com-chien-duong-chau",
           "name": "Cơm chiên Dương Châu",
           "description": "Yangzhou Fried Rice",
           "price": "55k",
-          "image": "/ba-chi-hai-lua.jpg"
+          "image": "/com-chien-duong-chau.jpg"
         },
         {
           "id": "com-trang",
           "name": "Cơm trắng",
           "description": "Rice",
           "price": "25k",
-          "image": "/com-xa-xiu.jpg"
+          "image": "/com-trang.jpg"
         },
         {
           "id": "com-chien-xa-xiu",
@@ -266,41 +318,33 @@
           "description": "Chinese BBQ Pork Fried Rice",
           "price": "59k",
           "image": "/com-xa-xiu.jpg"
-        },
-        {
-          "id": "mi-xao-bo",
-          "name": "Mì xào bò",
-          "description": "Stir-fried Noodle with Beef",
-          "price": "69k",
-          "image": "/ga-cung-bao.jpg"
-        },
-        {
-          "id": "mi-xao-hai-san",
-          "name": "Mì xào hải sản",
-          "description": "Stir-fried Noodle with Seafood",
-          "price": "79k",
-          "image": "/thit-lon-chua-ngot.jpg",
-          "badge": "Đặc biệt"
         }
       ]
     },
     {
-      "id": "do-uong",
-      "name": "Đồ uống",
+      "id": "rau-canh",
+      "name": "Rau-canh",
       "items": [
         {
-          "id": "tra-dao",
-          "name": "Trà đào",
-          "description": "Peach Tea",
-          "price": "39k",
-          "image": "/dish-7.jpg"
+          "id": "canh-rong-bien-trung",
+          "name": "Canh rong biển trứng",
+          "description": "Seaweed Egg Soup",
+          "price": "59k",
+          "image": "/canh-rong-bien-trung.jpg"
         },
         {
-          "id": "tra-sua",
-          "name": "Trà sữa",
-          "description": "Milk Tea",
-          "price": "35k",
-          "image": "/dish-8.jpg"
+          "id": "canh-chua-cay",
+          "name": "Canh rong chua cay",
+          "description": "Sour & Spicy Soup",
+          "price": "79k",
+          "image": "/canh-chua-cay.jpg"
+        },
+        {
+          "id": "rau-cai-chip-xao",
+          "name": "Rau cải chíp xào",
+          "description": "Stir-fried Bok Choy",
+          "price": "49k",
+          "image": "/rau-cai-chip-xao.jpg"
         }
       ]
     }

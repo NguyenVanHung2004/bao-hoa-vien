@@ -47,11 +47,11 @@ export default function CartPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-1 py-12">
+      <main className="flex-1 md:py-12 py-6 px-4 md:px-2">
         <div className="container max-w-6xl">
           <h1 className="text-3xl font-bold mb-6">Giỏ hàng</h1>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 ">
             <div className="md:col-span-2 space-y-4">
               {items.map((item) => (
                 <Card key={item.id} className="overflow-hidden">
