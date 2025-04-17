@@ -18,10 +18,27 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Bảo Hoa Viên - Nhà hàng ẩm thực Trung Hoa tại Hà Nội",
-  description:
-    "Nhà hàng Bảo Hoa Viên chuyên phục vụ các món ăn Trung Hoa chính thống với hương vị đặc trưng và nguyên liệu tươi ngon.",
-}
+  title: "Nhà hàng Bảo Hoa Viên",
+  description: "Nhà hàng Bảo Hoa Viên - Không gian ẩm thực đậm chất truyền thống Việt Nam.",
+  keywords: ["Bảo Hoa Viên", "Nhà hàng Bảo Hoa Viên", "Bao Hoa Vien", "Nha hang Bao Hoa Vien"],
+  openGraph: {
+    title: "Nhà hàng Bảo Hoa Viên",
+    description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại nhà hàng Bảo Hoa Viên.",
+    url: "https://bao-hoa-vien.vercel.app/",
+    siteName: "Bảo Hoa Viên",
+    images: [
+      {
+        url: "https://bao-hoa-vien.vercel.app/og-image.jpg", // bạn nên có 1 ảnh preview
+        width: 1200,
+        height: 630,
+        alt: "Nhà hàng Bảo Hoa Viên",
+      },
+    ],
+    locale: "vi_VN",
+    type: "website",
+  },
+  robots: "index, follow",
+};
 
 export default function RootLayout({
   children,
