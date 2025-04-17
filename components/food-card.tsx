@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { ShoppingCart } from "lucide-react"
 import { useCart } from "@/lib/cart-context"
 import { toast } from "sonner"
@@ -32,9 +32,9 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
   };
 
   return (
-    <Card className="h-full flex flex-col overflow-visible transition-all hover:shadow-lg">
+    <Card className="flex flex-col overflow-visible hover:shadow-lg">
       <div className="relative">
-        <div className="aspect-square sm:aspect-video overflow-hidden">
+        <div className="aspect-square md:aspect-[4/3] overflow-hidden">
           <Image
             src={image || "/logo.png"}
             alt={name}
@@ -45,22 +45,18 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
         </div>
         {badge && <Badge className="absolute top-2 right-2 bg-primary text-white">{badge}</Badge>}
       </div>
-      <CardHeader className="p-3 pb-0 sm:p-4 sm:pb-0">
-        <h3 className="text-base font-bold sm:text-xl line-clamp-1">{name}</h3>
-        <p className="text-xs text-muted-foreground sm:text-sm line-clamp-1">{description}</p>
-      </CardHeader>
-      <CardContent className="p-3 pt-2 sm:p-4 sm:pt-2">
-        <div className="text-base font-bold text-primary sm:text-lg">{price}</div>
-      </CardContent>
-      <div className="p-3 pt-0 sm:p-4 sm:pt-0 mt-auto">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          className="w-full gap-1 text-xs sm:text-sm sm:gap-2" 
+      <div className="flex flex-col p-1.5 pb-1.5 md:p-2">
+        <h3 className="text-sm font-bold line-clamp-1 md:text-base">{name}</h3>
+        <p className="text-xs text-muted-foreground line-clamp-1 md:text-sm">{description}</p>
+        <div className="text-sm font-bold text-primary mt-0.5 md:text-base md:mt-1">{price}</div>
+        <Button
+          variant="outline"
+          size="sm"
+          className="w-full gap-1 text-xs mt-1 h-7 md:h-8 md:text-sm"
           onClick={handleAddToCart}
           style={{ WebkitTransform: 'translateZ(0)' }}
         >
-          <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
+          <ShoppingCart className="h-3 w-3 md:h-4 md:w-4 text-[#dc141e]" />
           Đặt món
         </Button>
       </div>

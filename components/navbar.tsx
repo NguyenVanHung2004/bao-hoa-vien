@@ -4,13 +4,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { ShoppingCart, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger,SheetTitle } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
 import { useCart } from "@/lib/cart-context"
 import { Badge } from "@/components/ui/badge"
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 export function Navbar() {
   const { totalItems } = useCart();
+  const hasMounted = useHasMounted();
+  if (!hasMounted) return null; // or show skeleton/loading state
 
   return (
     <header className="sticky top-0 flex justify-center items-center z-50 w-full border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -43,7 +46,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <Link href="/cart">
             <Button variant="outline" size="icon" className="relative">
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className="h-5 w-5 text-[#dc141e]" />
               {totalItems > 0 && (
                 <Badge 
                   className="absolute -top-2 -right-2 px-2 py-1 h-6 min-w-6 flex items-center justify-center rounded-full"
@@ -53,12 +56,11 @@ export function Navbar() {
               )}
             </Button>
           </Link>
-          <Button variant="outline" size="sm" className="hidden md:flex">
-            Đặt bàn
+          <Link href="/menu">
+          <Button variant="outline" size="sm" className="hidden md:flex text-[#dc141e]">
+            Thực đơn
           </Button>
-          <Button size="sm" className="hidden md:flex">
-            Gọi ngay
-          </Button>
+          </Link>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -67,6 +69,10 @@ export function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle>
+                <Image src="/logo.png" alt="Bảo Hoa Viên Logo" width={30} height={30} className="rounded-full" />
+                <span>Bảo Hoa Viên</span>
+              </SheetTitle>
               <div className="grid gap-6 py-6">
                 <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
                   <Image src="/logo.png" alt="Bảo Hoa Viên Logo" width={30} height={30} className="rounded-full" />

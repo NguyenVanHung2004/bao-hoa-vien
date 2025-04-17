@@ -1,13 +1,27 @@
+"use client"
 import { Navbar } from "@/components/navbar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FoodCard } from "@/components/food-card"
+import menuData from "@/data/menu.json"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useState } from "react"
 
-export const metadata = {
-  title: "Thực đơn - Bảo Hoa Viên",
-  description: "Khám phá các món ăn đặc sắc của nhà hàng Bảo Hoa Viên",
-}
+// const metadata = {
+//   title: "Thực đơn - Bảo Hoa Viên",
+//   description: "Khám phá các món ăn đặc sắc của nhà hàng Bảo Hoa Viên",
+// }
 
 export default function MenuPage() {
+  const [activeTab, setActiveTab] = useState(menuData.categories[0].id);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+  };
+
+  const handleSelectChange = (value: string) => {
+    setActiveTab(value);
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
@@ -22,272 +36,56 @@ export default function MenuPage() {
               </p>
             </div>
             
-            <Tabs defaultValue="sui-cao" className="w-full">
-              <div className="relative mb-4 w-full">
+            <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+              {/* Mobile Dropdown */}
+              <div className="md:hidden w-full mb-4">
+                <Select value={activeTab} onValueChange={handleSelectChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Chọn danh mục" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {menuData.categories.map((category) => (
+                      <SelectItem key={category.id} value={category.id}>
+                        {category.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Desktop Tabs */}
+              <div className="relative mb-4 w-full hidden md:block">
                 <TabsList className="flex w-full overflow-x-auto scrollbar-hide p-1">
-                  <TabsTrigger
-                    value="sui-cao"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                  >
-                    Sủi cảo
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="mi"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                  >
-                    Mì
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="dimsum"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                  >
-                    Dimsum
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="mon-xao"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                  >
-                    Món xào
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="com"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                  >
-                    Cơm
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="do-uong"
-                    className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                  >
-                    Đồ uống
-                  </TabsTrigger>
+                  {menuData.categories.map((category) => (
+                    <TabsTrigger
+                      key={category.id}
+                      value={category.id}
+                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
+                    >
+                      {category.name}
+                    </TabsTrigger>
+                  ))}
                 </TabsList>
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-slate-50 to-transparent md:hidden"></div>
               </div>
               
-              <TabsContent
-                value="sui-cao"
-                className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
-              >
-                <FoodCard
-                  name="Sủi cảo heo cải thảo, bắp"
-                  description="Pork Dumpling with Napa Cabbage"
-                  price="39k"
-                  image="/dish-1.jpg"
-                />
-                <FoodCard
-                  name="Sủi cảo heo hẹ"
-                  description="Pork Dumpling with Chives"
-                  price="39k" 
-                  image="/dish-2.jpg"
-                />
-                <FoodCard
-                  name="Sủi cảo tôm"
-                  description="Shrimp Dumpling"
-                  price="49k"
-                  image="/dish-3.jpg"
-                  badge="Bán chạy"
-                />
-                <FoodCard
-                  name="Sủi cảo bò hành"
-                  description="Beef Dumpling with Onion"
-                  price="49k"
-                  image="/dish-4.jpg"
-                />
-              </TabsContent>
-              
-              <TabsContent
-                value="mi"
-                className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
-              >
-                <FoodCard
-                  name="Mì sủi cảo heo cải thảo, bắp"
-                  description="Pork Dumpling with Napa Cabbage Noodle"
-                  price="39k"
-                  image="/dish-9.jpg"
-                />
-                <FoodCard
-                  name="Mì sủi cảo heo hẹ"
-                  description="Pork Dumpling with Chives Noodle"
-                  price="39k"
-                  image="/dish-10.jpg"
-                />
-                <FoodCard
-                  name="Mì sủi cảo tôm"
-                  description="Shrimp Dumpling Noodle"
-                  price="49k"
-                  image="/dish-11.jpg"
-                  badge="Bán chạy"
-                />
-                <FoodCard
-                  name="Mì sủi cảo bò hành"
-                  description="Beef Dumpling with Onion Noodle"
-                  price="49k"
-                  image="/dish-12.jpg"
-                />
-                <FoodCard
-                  name="Mì hoành thánh"
-                  description="Wonton Noodle"
-                  price="49k"
-                  image="/dish-13.jpg"
-                />
-                <FoodCard
-                  name="Mì xá xíu"
-                  description="Chinese BBQ Pork Noodle"
-                  price="49k"
-                  image="/dish-14.jpg"
-                />
-                <FoodCard
-                  name="Mì tôm tươi"
-                  description="Shrimp Noodle"
-                  price="59k"
-                  image="/dish-15.jpg"
-                />
-                <FoodCard
-                  name="Mì bò cay tê"
-                  description="Spicy Beef Noodle"
-                  price="59k"
-                  image="/dish-16.jpg"
-                  badge="Cay"
-                />
-                <FoodCard
-                  name="Mì đặc biệt"
-                  description="Special Noodle"
-                  price="59k"
-                  image="/dish-17.jpg"
-                />
-              </TabsContent>
-              
-              <TabsContent
-                value="dimsum"
-                className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
-              >
-                <FoodCard
-                  name="Há cảo tôm"
-                  description="Shrimp dumpling"
-                  price="55k"
-                  image="/dish-18.jpg"
-                  badge="Bán chạy"
-                />
-                <FoodCard
-                  name="Há cảo sò điệp"
-                  description="Scallop dumpling"
-                  price="59k"
-                  image="/dish-19.jpg"
-                />
-                <FoodCard
-                  name="Chân gà hấp tàu xì"
-                  description="Chicken feet dimsum"
-                  price="59k"
-                  image="/dish-20.jpg"
-                />
-                <FoodCard
-                  name="Hoành thánh chiên"
-                  description="Fried Wontons"
-                  price="49k"
-                  image="/dish-21.jpg"
-                />
-                <FoodCard
-                  name="Tàu hủ ky cuốn tôm chiên"
-                  description="Fried tofu skin roll with shrimp"
-                  price="49k"
-                  image="/dish-22.jpg"
-                />
-                <FoodCard
-                  name="Xíu mại"
-                  description="Siu Mai"
-                  price="49k"
-                  image="/dish-23.jpg"
-                />
-              </TabsContent>
-              
-              <TabsContent
-                value="mon-xao"
-                className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
-              >
-                <FoodCard
-                  name="Đậu phụ tứ xuyên"
-                  description="Mapo Tofu"
-                  price="59k"
-                  image="/dish-26.jpg"
-                />
-                <FoodCard
-                  name="Gà cung bảo"
-                  description="Kung Pao Chicken"
-                  price="89k"
-                  image="/dish-27.jpg"
-                  badge="Cay"
-                />
-                <FoodCard
-                  name="Gà cay trùng khánh"
-                  description="Chongqing Spicy Chicken"
-                  price="89k"
-                  image="/dish-28.jpg"
-                  badge="Cay"
-                />
-                <FoodCard
-                  name="Thịt lợn xào chua ngọt"
-                  description="Sweet & Sour Pork"
-                  price="89k"
-                  image="/dish-29.jpg"
-                />
-              </TabsContent>
-              
-              <TabsContent
-                value="com"
-                className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
-              >
-                <FoodCard
-                  name="Cơm trắng"
-                  description="Rice"
-                  price="25k"
-                  image="/dish-39.jpg"
-                />
-                <FoodCard
-                  name="Cơm chiên Dương Châu"
-                  description="Yangzhou Fried Rice"
-                  price="59k"
-                  image="/dish-40.jpg"
-                  badge="Bán chạy"
-                />
-                <FoodCard
-                  name="Cơm chiên xá xíu"
-                  description="Chinese BBQ Pork Fried Rice"
-                  price="59k"
-                  image="/dish-41.jpg"
-                />
-                <FoodCard
-                  name="Mì xào bò"
-                  description="Stir-fried Noodle with Beef"
-                  price="69k"
-                  image="/dish-42.jpg"
-                />
-                <FoodCard
-                  name="Mì xào hải sản"
-                  description="Stir-fried Noodle with Seafood"
-                  price="79k"
-                  image="/dish-43.jpg"
-                  badge="Đặc biệt"
-                />
-              </TabsContent>
-              
-              <TabsContent
-                value="do-uong"
-                className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
-              >
-                <FoodCard
-                  name="Trà đào"
-                  description="Peach Tea"
-                  price="39k"
-                  image="/dish-7.jpg"
-                />
-                <FoodCard
-                  name="Trà sữa"
-                  description="Milk Tea"
-                  price="35k"
-                  image="/dish-8.jpg"
-                />
-              </TabsContent>
+              {menuData.categories.map((category) => (
+                <TabsContent
+                  key={category.id}
+                  value={category.id}
+                  className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-4"
+                >
+                  {category.items.map((item) => (
+                    <FoodCard
+                      key={item.id}
+                      name={item.name}
+                      description={item.description}
+                      price={item.price}
+                      image={item.image}
+                      badge={item.badge}
+                    />
+                  ))}
+                </TabsContent>
+              ))}
             </Tabs>
           </div>
         </section>

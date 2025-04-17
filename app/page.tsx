@@ -1,18 +1,55 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, MapPin, Phone, Clock, Instagram, Facebook } from "lucide-react"
+import { ChevronRight, MapPin, Phone, Clock, ExternalLink } from "lucide-react"
+import { useState } from "react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
 import { HeroSection } from "@/components/hero-section"
 import { FoodCard } from "@/components/food-card"
 import { TestimonialCard } from "@/components/testimonial-card"
-import { ContactForm } from "@/components/contact-form"
+// import { ContactForm } from "@/components/contact-form"
 import { Navbar } from "@/components/navbar"
+import menuData from "@/data/menu.json"
 
 export default function Home() {
+  // Lấy một số món nổi bật cho trang chủ
+  // const featuredCategories = ['sui-cao', 'mi', 'mon-xao', 'dimsum', 'com-mi-xao'];
+  const [activeTab, setActiveTab] = useState('sui-cao');
+  
+  // Hàm lấy một số món từ mỗi danh mục
+  // const getFeaturedItems = (categoryId: string, limit: number = 4) => {
+  //   const category = menuData.categories.find(cat => cat.id === categoryId);
+  //   if (!category) return [];
+  //   return category.items.slice(0, limit);
+  // };
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+  };
+
+  const handleSelectChange = (value: string) => {
+    setActiveTab(value);
+  };
+  const locations = [
+    {
+      name: "Cơ sở Giảng Võ",
+      address: "114A1 Giảng Võ, Ba Đình, Hà Nội",
+      phone: "+84 96 933 98 58",
+      mapUrl: "https://maps.app.goo.gl/JZjdcVX5Z5Z5Z5Z5Z",
+      image: "/co-so-giang-vo.jpg",
+    },
+    {
+      name: "Cơ sở Tô Ngọc Vân",
+      address: "46/52 Tô Ngọc Vân, Tây Hồ, Hà Nội",
+      phone: "+84 96 933 98 58",
+      mapUrl: "https://maps.app.goo.gl/JZjdcVX5Z5Z5Z5Z5Z",
+      image: "/co-so-tongocvan.jpg",
+    },
+  ]
   return (
     <div className="flex w-full min-h-screen flex-col">
       <Navbar />
@@ -23,7 +60,6 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
               <div>
-                <Badge className="mb-4">Về chúng tôi</Badge>
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Về Bảo Hoa Viên</h2>
                 <p className="mt-4 text-lg text-muted-foreground">
                   Nhà hàng Bảo Hoa Viên tự hào mang đến cho quý khách những món ăn Trung Hoa chính thống với hương vị
@@ -36,19 +72,19 @@ export default function Home() {
                 <div className="mt-8 grid gap-4">
                   <Card>
                     <CardContent className="p-4 flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Clock className="h-5 w-5 text-primary" />
+                      <div className="h-10 w-10 rounded-full  bg-red-100 flex items-center justify-center">
+                        <Clock className="h-5 w-5 text-[#dc141e]" />
                       </div>
                       <div>
-                        <h3 className="font-medium">Giờ mở cửa</h3>
+                        <h3 className="font-medium ">Giờ mở cửa</h3>
                         <p className="text-sm text-muted-foreground">10:00 - 22:00 hàng ngày</p>
                       </div>
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4 flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-primary" />
+                      <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
+                        <MapPin className="h-5 w-5 text-[#dc141e] " />
                       </div>
                       <div>
                         <h3 className="font-medium">Địa chỉ</h3>
@@ -59,8 +95,8 @@ export default function Home() {
                   </Card>
                   <Card>
                     <CardContent className="p-4 flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Phone className="h-5 w-5 text-primary" />
+                      <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
+                        <Phone className="h-5 w-5 text-[#de141e]" />
                       </div>
                       <div>
                         <h3 className="font-medium">Liên hệ</h3>
@@ -86,144 +122,61 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8">
-              <Tabs defaultValue="sui-cao" className="w-full">
-                <div className="relative mb-4 w-full">
+              <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+                {/* Mobile Dropdown */}
+                <div className="md:hidden w-full mb-4">
+                  <Select value={activeTab} onValueChange={handleSelectChange}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Chọn danh mục" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {menuData.categories.slice(0, 6).map((category) => (
+                        <SelectItem key={category.id} value={category.id}>
+                          {category.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Desktop Tabs */}
+                <div className="relative mb-4 w-full hidden md:block">
                   <TabsList className="flex w-full overflow-x-auto scrollbar-hide p-1">
-                    <TabsTrigger 
-                      value="sui-cao" 
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                    >
-                      Sủi cảo
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="mi" 
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                    >
-                      Mì
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="dimsum" 
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                    >
-                      Dimsum
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="mon-xao" 
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                    >
-                      Món xào
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="com-mi-xao" 
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                    >
-                      Cơm
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="rau-nom" 
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
-                    >
-                      Rau-Nộm
-                    </TabsTrigger>
+                    {menuData.categories.slice(0, 6).map((category) => (
+                      <TabsTrigger 
+                        key={category.id}
+                        value={category.id} 
+                        className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
+                      >
+                        {category.name}
+                      </TabsTrigger>
+                    ))}
                   </TabsList>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-slate-50 to-transparent md:hidden"></div>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-slate-50 to-transparent"></div>
                 </div>
                 
-                <TabsContent value="sui-cao" className="grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-4 md:gap-4">
-                  <FoodCard
-                    name="Sủi cảo chiên"
-                    description="Fried Dumplings"
-                    price="59k"
-                    image="/dish-1.jpg"
-                    badge="Bán chạy"
-                  />
-                  <FoodCard name="Sủi cảo hấp" description="Steamed Dumplings" price="49k" image="/dish-2.jpg" />
-                  <FoodCard name="Sủi cảo hấp" description="Steamed Dumplings" price="49k" image="/dish-2.jpg" />
-                  <FoodCard name="Hoành thánh chiên" description="Fried Wontons" price="49k" image="/dish-3.jpg" />
-                </TabsContent>
-                
-                <TabsContent value="mon-xao" className="grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-                  <FoodCard
-                    name="Đậu phụ tứ xuyên"
-                    description="Mapo Tofu"
-                    price="59k"
-                    image="/dish-26.jpg"
-                  />
-                  <FoodCard
-                    name="Gà cung bảo"
-                    description="Kung Pao Chicken"
-                    price="89k"
-                    image="/dish-27.jpg"
-                    badge="Cay"
-                  />
-                  <FoodCard
-                    name="Gà cay trùng khánh"
-                    description="Chongqing Spicy Chicken"
-                    price="89k"
-                    image="/dish-28.jpg"
-                    badge="Cay"
-                  />
-                </TabsContent>
-                
-                <TabsContent value="mi" className="grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-                  <FoodCard
-                    name="Mì sủi cảo bò hành"
-                    description="Beef Dumpling with Onion Noodle"
-                    price="69k"
-                    image="/dish-4.jpg"
-                  />
-                  <FoodCard
-                    name="Mì sủi cảo tôm"
-                    description="Shrimp Dumpling Noodle"
-                    price="69k"
-                    image="/dish-5.jpg"
-                    badge="Mới"
-                  />
-                  <FoodCard name="Mì dac biet" description="Roasted Duck Noodle" price="79k" image="/dish-6.jpg" />
-                </TabsContent>
-                
-                <TabsContent value="com-mi-xao" className="grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-                  <FoodCard
-                    name="Cơm gà hấp tảo xì"
-                    description="Chicken rice steamed"
-                    price="59k"
-                    image="/dish-7.jpg"
-                  />
-                  <FoodCard
-                    name="Cơm xá xíu"
-                    description="Char Siu Rice"
-                    price="65k"
-                    image="/dish-8.jpg"
-                    badge="Đặc biệt"
-                  />
-                  <FoodCard
-                    name="Cơm chiên Dương Châu"
-                    description="Yangzhou Fried Rice"
-                    price="55k"
-                    image="/dish-9.jpg"
-                  />
-                </TabsContent>
-                
-                <TabsContent value="dimsum" className="grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-                  <FoodCard
-                    name="Chả giò Quảng Đông"
-                    description="Cantonese Spring Rolls"
-                    price="45k"
-                    image="/dish-10.jpg"
-                  />
-                  <FoodCard
-                    name="Há cảo tôm"
-                    description="Shrimp Dumplings"
-                    price="55k"
-                    image="/dish-11.jpg"
-                    badge="Bán chạy"
-                  />
-                  <FoodCard name="Bánh bao xá xíu" description="Char Siu Bao" price="35k" image="/dish-12.jpg" />
-                </TabsContent>
+                {menuData.categories.slice(0, 6).map((category) => (
+                  <TabsContent 
+                    key={category.id}
+                    value={category.id} 
+                    className="grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-4 md:gap-4"
+                  >
+                    {category.items.slice(0, 4).map((item) => (
+                      <FoodCard
+                        key={item.id}
+                        name={item.name}
+                        description={item.description}
+                        price={item.price}
+                        image={item.image}
+                        badge={item.badge}
+                      />
+                    ))}
+                  </TabsContent>
+                ))}
               </Tabs>
               <div className="mt-8 text-center">
                 <Link href="/menu">
-                  <Button className="gap-2">
+                  <Button className="gap-2 bg-[#dc141e]">
                     Xem tất cả thực đơn
                     <ChevronRight className="h-4 w-4" />
                   </Button>
@@ -269,47 +222,67 @@ export default function Home() {
 
         <section id="contact" className="py-16 md:py-24 bg-slate-50 flex justify-center items-center">
           <div className="container">
-            <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
+            <div className="flex flex-col items-center text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Liên hệ với chúng tôi</h2>
+              <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
+                Hãy liên hệ với chúng tôi để đặt bàn, tổ chức tiệc hoặc đặt món mang về.
+              </p>
+            </div>
+
+            {/* Hai cơ sở nhà hàng */}
+            <div className="grid gap-8 md:grid-cols-2 mb-12 md:mx-8">
+              {locations.map((location, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <div className="relative h-64 md:h-80 lg:h-96">
+                  <Image
+                      src={location.image || "/placeholder.svg"}
+                      alt={location.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
+                      className="object-cover"
+                      quality={100}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-xl font-bold">{location.name}</h3>
+                      <p className="text-sm opacity-90">{location.address}</p>
+                    </div>
+                  </div>
+                  <CardContent className="p-2">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
+                        <Phone className="h-5 w-5 text-[#de141e]" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">{location.phone}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
+                        <Clock className="h-5 w-5 text-[#dc141e]" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">10:00 - 22:00 hàng ngày</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-6 pt-0">
+                    <a href={location.mapUrl} target="_blank" rel="noopener noreferrer" className="w-full">
+                      <Button variant="outline" className="w-full gap-2">
+                        <MapPin className="h-4 w-4 text-[#dc141e]" />
+                        Xem trên Google Maps
+                        <ExternalLink className="h-4 w-4 ml-auto" />
+                      </Button>
+                    </a>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+
+            {/* <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-start">
               <div>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Liên hệ với chúng tôi</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Hãy liên hệ với chúng tôi để đặt bàn, tổ chức tiệc hoặc đặt món mang về.
-                </p>
-                <div className="mt-8 grid gap-4">
-                  <Card>
-                    <CardContent className="p-4 flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Phone className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium">Hotline</h3>
-                        <p className="text-sm text-muted-foreground">+84 96 933 98 58</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="p-4 flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium">Địa chỉ</h3>
-                        <p className="text-sm text-muted-foreground">114A1 Giảng Võ, Ba Đình, Hà Nội</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="p-4 flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Clock className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium">Giờ mở cửa</h3>
-                        <p className="text-sm text-muted-foreground">10:00 - 22:00 hàng ngày</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                <ContactForm />
                 <div className="mt-6 flex items-center gap-4">
                   <Link href="https://www.facebook.com/baohoanviennhahang" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" size="icon">
@@ -322,11 +295,44 @@ export default function Home() {
                     </Button>
                   </Link>
                 </div>
-              </div>
-              <div>
-                <ContactForm />
-              </div>
-            </div>
+              </div> */}
+{/* 
+              <div className="grid gap-4">
+                <Card>
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Phone className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">Hotline</h3>
+                      <p className="text-sm text-muted-foreground">+84 96 933 98 58</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">Địa chỉ</h3>
+                      <p className="text-sm text-muted-foreground">114A1 Giảng Võ, Ba Đình, Hà Nội</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Clock className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">Giờ mở cửa</h3>
+                      <p className="text-sm text-muted-foreground">10:00 - 22:00 hàng ngày</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div> */}
+            {/* </div> */}
           </div>
         </section>
       </main>

@@ -28,7 +28,7 @@ export default function CartPage() {
               Hãy thêm món ăn từ thực đơn để tiếp tục đặt hàng
             </p>
             <Link href="/menu">
-              <Button className="gap-2">
+              <Button className="gap-2 bg-[#dc141e]">
                 Xem thực đơn
                 <ArrowRight className="h-4 w-4" />
               </Button>
