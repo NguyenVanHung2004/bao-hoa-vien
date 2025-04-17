@@ -21,9 +21,7 @@ export async function POST(request: Request) {
   try {
     const data: OrderData = await request.json();
     
-    // Bạn cần điền telegram bot token vào đây
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    // Điền chat_id của bạn vào đây (ID của cuộc trò chuyện/người nhận tin nhắn)
     const chatId = process.env.TELEGRAM_CHAT_ID;
     
     if (!botToken || !chatId) {
@@ -33,22 +31,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Tạo ID đơn hàng dựa trên timestamp và số ngẫu nhiên
     const orderId = `BHV${Date.now().toString().slice(-6)}${Math.floor(Math.random() * 1000)}`;
     
-    // Lấy thời gian và ngày hiện tại
     const now = new Date();
-    const formattedDate = now.toLocaleDateString('vi-VN', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-    const formattedTime = now.toLocaleTimeString('vi-VN', {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
+    const formattedDate = now.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const formattedTime = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
 
-    // Tạo tin nhắn đơn hàng
     const { customerInfo, items, totalPrice } = data;
     
     let message = `🍜 *ĐƠN HÀNG MỚI* 🍜\n\n`;
@@ -75,12 +63,24 @@ export async function POST(request: Request) {
     
     message += `\n*Tổng tiền:* ${totalPrice}k + 15k phí ship = ${totalPrice + 15}k`;
     
-    // Gửi tin nhắn qua Telegram API
+    // Tạo inline button "Đánh dấu Hoàn Thành"
+    const inlineKeyboard = {
+      inline_keyboard: [
+        [
+          {
+            text: "Đánh dấu hoàn thành",
+            callback_data: `complete_${orderId}`, // Data callback cho tin nhắn này
+          },
+        ],
+      ],
+    };
+
     const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     const telegramMessageData = {
       chat_id: chatId,
       text: message,
       parse_mode: "Markdown",
+      reply_markup: JSON.stringify(inlineKeyboard),
     };
     
     const telegramResponse = await fetch(telegramApiUrl, {
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify(telegramMessageData),
     });
-    
+
     const telegramResult = await telegramResponse.json();
     
     if (!telegramResult.ok) {
@@ -99,8 +99,12 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
-    
-    return NextResponse.json({ success: true, orderId: orderId });
+
+    // Lưu lại ID tin nhắn đã gửi để sử dụng cho việc cập nhật sau
+    const messageId = telegramResult.result.message_id;
+
+    return NextResponse.json({ success: true, orderId: orderId, messageId: messageId });
+
   } catch (error) {
     console.error("Error sending Telegram message:", error);
     return NextResponse.json(
@@ -108,4 +112,4 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-} 
+}
