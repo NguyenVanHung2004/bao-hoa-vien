@@ -40,6 +40,8 @@ export function FoodCard({ name, description, price, image, badge }: FoodCardPro
             alt={name}
             width={600}
             height={400}
+            loading = 'lazy' 
+            quality={80}
             className="h-full w-full object-cover transition-transform hover:scale-105"
           />
         </div>

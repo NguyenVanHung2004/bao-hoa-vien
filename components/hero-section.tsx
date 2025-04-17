@@ -11,10 +11,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns"
 import { vi } from "date-fns/locale"
 import { CalendarIcon } from "lucide-react"
-
+import { useRouter } from "next/navigation"
 export function HeroSection() {
   const [date, setDate] = useState<Date>()
-
+  const router = useRouter()
   return (
     <section className="relative">
       <div className="absolute inset-0 bg-black/60 z-10" />
@@ -45,11 +45,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Link href="/menu">
-              <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white">
-                Xem thực đơn
-              </Button>
-            </Link>
+            <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white" onClick={ () => router.push("/menu")}>
+              Xem thực đơn
+            </Button>
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">

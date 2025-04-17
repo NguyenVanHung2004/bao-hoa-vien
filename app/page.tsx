@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative aspect-square overflow-hidden rounded-xl">
-                <Image src="/section-2.jpg" alt="Không gian nhà hàng" fill className="object-cover" />
+                <Image src="/section-2.jpg" alt="Không gian nhà hàng" fill className="object-cover"/>
               </div>
             </div>
           </div>
