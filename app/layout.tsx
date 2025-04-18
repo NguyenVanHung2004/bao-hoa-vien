@@ -19,19 +19,19 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Bảo Hoa Viên - Ẩm thực Trung Hoa",
-  description: "Nhà hàng Bảo Hoa Viên - Không gian ẩm thực đậm chất truyền thống Việt Nam.",
+  description: "Bảo Hoa Viên - Không gian ẩm thực đậm chất truyền thống Việt Nam.",
   other: {
     'google-site-verification': 'qCB66Q0sQe_MKIyRZ08occmGJTzzuEM9Bvh6NrMmPyA',
   },
   keywords: ["Bảo Hoa Viên","Bảo Hoa Viên - Ẩm thực Trung Hoa", "Nhà hàng Bảo Hoa Viên", "Bao Hoa Vien", "Nha hang Bao Hoa Vien"],
   openGraph: {
     title: "Bảo Hoa Viên",
-    description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại nhà hàng Bảo Hoa Viên.",
-    url: "https://bao-hoa-vien.vercel.app/",
+    description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại Bảo Hoa Viên.",
+    url: "https://baohoavien.netlify.app/",
     siteName: "Bảo Hoa Viên",
     images: [
       {
-        url: "https://bao-hoa-vien.vercel.app/og-image.jpg", // bạn nên có 1 ảnh preview
+        url: "https://baohoavien.netlify.app/og-image.jpg", // bạn nên có 1 ảnh preview
         width: 1200,
         height: 630,
         alt: "Nhà hàng Bảo Hoa Viên",
