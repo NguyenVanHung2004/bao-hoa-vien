@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Bảo Hoa Viên - Ẩm thực Trung Hoa",
   description: "Nhà hàng Bảo Hoa Viên - Không gian ẩm thực đậm chất truyền thống Việt Nam.",
   other: {
-    'google-site-verification': 'P-aKY8rm0gnIFHUsKfOp1nx3F0GyVRyl6xoJUHBsPHc',
+    'google-site-verification': 'qCB66Q0sQe_MKIyRZ08occmGJTzzuEM9Bvh6NrMmPyA',
   },
   keywords: ["Bảo Hoa Viên","Bảo Hoa Viên - Ẩm thực Trung Hoa", "Nhà hàng Bảo Hoa Viên", "Bao Hoa Vien", "Nha hang Bao Hoa Vien"],
   openGraph: {
