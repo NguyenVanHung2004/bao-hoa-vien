@@ -70,7 +70,7 @@ export default function CartPage() {
                             <p className="text-sm text-muted-foreground line-clamp-1">{item.description}</p>
                             <div className="text-primary font-medium mt-1">{item.price}k</div>
                           </div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex sm:pt-0 pt-8 items-center gap-2">
                             <Button
                               variant="outline"
                               size="icon"
