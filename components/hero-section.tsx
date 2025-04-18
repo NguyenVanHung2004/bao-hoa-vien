@@ -53,7 +53,7 @@ export function HeroSection() {
                 window.location.href = "/menu"
               }}
             >
-              <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white pointer-events-auto">
+              <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white pointer-events-auto cursor-pointer">
                 Xem thực đơn
               </Button>
             </a>

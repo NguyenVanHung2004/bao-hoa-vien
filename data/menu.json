@@ -5,6 +5,34 @@
       "name": "Sủi cảo",
       "items": [    
         {
+          "id": "sui-cao-heo-cai-thao",
+          "name": "Sủi cảo heo cải thảo, bắp",
+          "description": "Steamed Pork Dumpling with Napa Cabbage",
+          "price": "39k",
+          "image": "/sui-cao-heo-cai-thao-hap.jpg"
+        },
+        {
+          "id": "sui-cao-heo-he",
+          "name": "Sủi cảo heo hẹ",
+          "description": "Steamed Pork Dumpling with Chives",
+          "price": "39k", 
+          "image": "/sui-cao-heo-cai-thao-hap.jpg"
+        },
+        {
+          "id": "sui-cao-tom",
+          "name": "Sủi cảo tôm",
+          "description": "Steamed Shrimp Dumpling",
+          "price": "49k",
+          "image": "/sui-cao-tom-hap.jpg",
+          "badge": "Bán chạy"
+        },
+        {
+          "id": "sui-cao-bo-hanh",
+          "name": "Sủi cảo bò hành",
+          "description": "Steamed Beef Dumpling with Onion",
+          "price": "49k",
+          "image": "/sui-cao-heo-cai-thao-hap.jpg"
+        }, {
           "id": "sui-cao-heo-cai-thao-chien",
           "name": "Sủi cảo heo cải thảo chiên",
           "description": "Pork Dumpling with Napa Cabbage",
@@ -35,35 +63,6 @@
           "price": "49k",
           "image": "/sui-cao-chien.jpg",
           "badge": "Bán chạy"
-        },
-        {
-          "id": "sui-cao-heo-cai-thao",
-          "name": "Sủi cảo heo cải thảo, bắp",
-          "description": "Steamed Pork Dumpling with Napa Cabbage",
-          "price": "39k",
-          "image": "/sui-cao-heo-cai-thao-hap.jpg"
-        },
-        {
-          "id": "sui-cao-heo-he",
-          "name": "Sủi cảo heo hẹ",
-          "description": "Steamed Pork Dumpling with Chives",
-          "price": "39k", 
-          "image": "/sui-cao-heo-cai-thao-hap.jpg"
-        },
-        {
-          "id": "sui-cao-tom",
-          "name": "Sủi cảo tôm",
-          "description": "Steamed Shrimp Dumpling",
-          "price": "49k",
-          "image": "/sui-cao-tom-hap.jpg",
-          "badge": "Bán chạy"
-        },
-        {
-          "id": "sui-cao-bo-hanh",
-          "name": "Sủi cảo bò hành",
-          "description": "Steamed Beef Dumpling with Onion",
-          "price": "49k",
-          "image": "/sui-cao-heo-cai-thao-hap.jpg"
         }
       ]
     },

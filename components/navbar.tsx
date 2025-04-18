@@ -58,8 +58,8 @@ export function Navbar() {
         </nav>
         <div className="flex items-center gap-4">
           <Link href="/cart">
-            <Button variant="outline" size="icon" className="relative">
-              <ShoppingCart className="h-5 w-5 text-[#dc141e]" />
+            <Button variant="outline" size="icon" className="relative cursor-pointer">
+              <ShoppingCart className="h-5 w-5 text-[#dc141e] " />
               {totalItems > 0 && (
                 <Badge className="absolute -top-2 -right-2 px-1 py-1 h-4 min-w-4 flex items-center justify-center rounded-full bg-[#dc141e]">
                   {totalItems}
@@ -68,7 +68,7 @@ export function Navbar() {
             </Button>
           </Link>
           <Link href="/menu">
-            <Button variant="outline" size="sm" className="hidden md:flex text-[#dc141e]">
+            <Button variant="outline" size="sm" className="hidden md:flex text-[#dc141e] cursor-pointer">
               Thực đơn
             </Button>
           </Link>
