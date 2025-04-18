@@ -16,7 +16,7 @@ export default function CartPage() {
   const [note, setNote] = useState("")
 
   const formattedTotalPrice = `${totalPrice}k`
-  const deliveryFee = 30
+  const deliveryFee = 15
   const totalWithDelivery = totalPrice + deliveryFee
 
   if (items.length === 0) {
@@ -48,33 +48,33 @@ export default function CartPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col justify-center items-center">
       <Navbar />
       <main className="flex-1 md:py-12 py-6 px-4">
-        <div className="container max-w-6xl">
+        <div className="container max-w-4xl">
           <h1 className="text-3xl font-bold mb-6">Giỏ hàng</h1>
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="md:col-span-2 space-y-4">
               {items.map((item) => (
                 <Card key={item.id} className="overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="flex flex-col sm:flex-row items-start p-4 gap-4">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 relative rounded-md overflow-hidden flex-shrink-0">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-20 h-20 relative rounded-md overflow-hidden flex-shrink-0">
                         <Image src={item.image || "/placeholder.svg"} alt={item.name} fill className="object-cover" />
                       </div>
-                      <div className="flex-1 min-w-0 w-full">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 w-full">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 w-full">
                           <div>
-                            <h3 className="font-semibold line-clamp-2">{item.name}</h3>
+                            <h3 className="font-semibold line-clamp-1">{item.name}</h3>
                             <p className="text-sm text-muted-foreground line-clamp-1">{item.description}</p>
-                            <div className="text-primary font-medium mt-1">{item.price}</div>
+                            <div className="text-primary font-medium mt-1">{item.price}k</div>
                           </div>
-                          <div className="flex items-center gap-2 mt-2 sm:mt-0">
+                          <div className="flex items-center gap-2">
                             <Button
                               variant="outline"
                               size="icon"
-                              className="h-8 w-8 cursor-pointer"
+                              className="h-8 w-8"
                               onClick={() => updateQuantity(item.id, item.quantity - 1)}
                               disabled={item.quantity <= 1}
                             >
@@ -84,7 +84,7 @@ export default function CartPage() {
                             <Button
                               variant="outline"
                               size="icon"
-                              className="h-8 w-8 cursor-pointer"
+                              className="h-8 w-8"
                               onClick={() => updateQuantity(item.id, item.quantity + 1)}
                             >
                               <Plus className="h-4 w-4" />
@@ -92,7 +92,7 @@ export default function CartPage() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8 text-destructive cursor-pointer"
+                              className="h-8 w-8 text-destructive"
                               onClick={() => removeItem(item.id)}
                             >
                               <Trash2 className="h-4 w-4" />
@@ -120,7 +120,7 @@ export default function CartPage() {
                       <span>{formattedTotalPrice}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Phí giao hàng (dự kiến):</span>
+                      <span className="text-muted-foreground">Phí giao hàng:</span>
                       <span>{deliveryFee}k</span>
                     </div>
                   </div>
@@ -133,13 +133,13 @@ export default function CartPage() {
                     <Input placeholder="Ghi chú đơn hàng" value={note} onChange={(e) => setNote(e.target.value)} />
                   </div>
                   <Link href="/checkout" className="block">
-                    <Button className="w-full gap-2 bg-[#dc141e] hover:bg-[#dc141e]/90 cursor-pointer">
+                    <Button className="w-full gap-2 bg-[#dc141e] hover:bg-[#dc141e]/90">
                       Tiến hành đặt hàng
                       <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/menu" className="block">
-                    <Button variant="outline" className="w-full cursor-pointer">
+                    <Button variant="outline" className="w-full">
                       Tiếp tục xem thực đơn
                     </Button>
                   </Link>
