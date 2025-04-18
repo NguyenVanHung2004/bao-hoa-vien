@@ -61,7 +61,7 @@ export async function POST(request: Request) {
       message += `${index + 1}. ${item.name} - ${item.quantity}x${item.price} \n`;
     });
     
-    message += `\n*Tổng tiền:* ${totalPrice}k + 15k phí ship = ${totalPrice + 15}k`;
+    message += `\n*Tổng tiền:* ${totalPrice}k + 30k phí ship = ${totalPrice + 30}k`;
     
     // Tạo inline button "Đánh dấu Hoàn Thành"
     const inlineKeyboard = {

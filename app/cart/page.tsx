@@ -16,7 +16,7 @@ export default function CartPage() {
   const [note, setNote] = useState("")
 
   const formattedTotalPrice = `${totalPrice}k`
-  const deliveryFee = 15
+  const deliveryFee = 30
   const totalWithDelivery = totalPrice + deliveryFee
 
   if (items.length === 0) {
@@ -120,7 +120,7 @@ export default function CartPage() {
                       <span>{formattedTotalPrice}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Phí giao hàng:</span>
+                      <span className="text-muted-foreground">Phí giao hàng (dự kiến):</span>
                       <span>{deliveryFee}k</span>
                     </div>
                   </div>

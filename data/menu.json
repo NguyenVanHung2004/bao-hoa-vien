@@ -74,14 +74,14 @@
           "id": "mi-sui-cao-bo-hanh",
           "name": "Mì sủi cảo bò hành",
           "description": "Beef Dumpling with Onion Noodle",
-          "price": "69k",
+          "price": "49k",
           "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-tom",
           "name": "Mì sủi cảo tôm",
           "description": "Shrimp Dumpling Noodle",
-          "price": "69k",
+          "price": "49k",
           "image": "/mi-sui-cao.jpg"
         },
         {

@@ -97,10 +97,10 @@ export default function CheckoutPage() {
   }
 
   const formattedTotalPrice = `${totalPrice}k`;
-  const totalWithShipping = parseInt(formattedTotalPrice) + 15;
+  const totalWithShipping = parseInt(formattedTotalPrice) + 30;
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col px-4">
       <Navbar />
       <main className="flex-1 py-12">
         <div className="container max-w-6xl">
@@ -197,7 +197,7 @@ export default function CheckoutPage() {
                         <h3 className="font-medium">Giao hàng tiêu chuẩn</h3>
                         <p className="text-sm text-muted-foreground">Nhận hàng trong 30-60 phút</p>
                       </div>
-                      <div className="font-semibold">15k</div>
+                      <div className="font-semibold">30k</div>
                     </div>
                   </CardContent>
                 </Card>
@@ -236,7 +236,7 @@ export default function CheckoutPage() {
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Phí giao hàng:</span>
-                        <span>15k</span>
+                        <span>30k</span>
                       </div>
                     </div>
 
@@ -245,7 +245,7 @@ export default function CheckoutPage() {
                       <span className="text-primary">{totalWithShipping}k</span>
                     </div>
 
-                    <Button type="submit" className="w-full gap-2" disabled={isSubmitting}>
+                    <Button type="submit" className="w-full gap-2 bg-[#dc141e] hover:bg-[#dc141e]/70" disabled={isSubmitting}>
                       {isSubmitting ? "Đang xử lý..." : "Đặt hàng ngay"}
                       {!isSubmitting && <Check className="h-4 w-4" />}
                     </Button>
