@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bảo Hoa Viên",
     description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại Bảo Hoa Viên.",
-    url: "https://bao-hoa-vien.vercel.app/",
+    url: "https://baohoavien.io.vn",
     siteName: "Bảo Hoa Viên",
     images: [
       {
-        url: "https://bao-hoa-vien.vercel.app/og-image.jpg", // bạn nên có 1 ảnh preview
+        url: "https://baohoavien.io.vn/logo.png", // bạn nên có 1 ảnh preview
         width: 1200,
         height: 630,
-        alt: "Nhà hàng Bảo Hoa Viên",
+        alt: "Bảo Hoa Viên",
       },
     ],
     locale: "vi_VN",
