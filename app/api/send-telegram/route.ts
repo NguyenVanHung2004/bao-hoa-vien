@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+import { format, toZonedTime  } from "date-fns-tz";
 type OrderData = {
   customerInfo: {
     name: string;
@@ -33,9 +33,12 @@ export async function POST(request: Request) {
 
     const orderId = `BHV${Date.now().toString().slice(-6)}${Math.floor(Math.random() * 1000)}`;
     
-    const now = new Date();
-    const formattedDate = now.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    const formattedTime = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+     // Format giờ theo múi giờ Việt Nam
+     const timeZone = "Asia/Ho_Chi_Minh";
+     const now = new Date();
+     const zonedDate = toZonedTime (now, timeZone);
+     const formattedDate = format(zonedDate, "dd/MM/yyyy", { timeZone });
+     const formattedTime = format(zonedDate, "HH:mm", { timeZone });
 
     const { customerInfo, items, totalPrice } = data;
     
