@@ -62,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
        <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
