@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     'google-site-verification': 'zCLIJaB2mZKU71RmNIleCBuYdh_IFczETY3XCAODv-s',
   },
   keywords: ["Bảo Hoa Viên","Bảo Hoa Viên - Ẩm thực Trung Hoa", "Nhà hàng Bảo Hoa Viên", "Bao Hoa Vien", "Nha hang Bao Hoa Vien"],
+  icons: {
+    icon: '/favicon.png', // ← icon của bạn ở đây
+  },
   openGraph: {
     title: "Bảo Hoa Viên",
     description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại Bảo Hoa Viên.",
@@ -49,7 +52,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="vi">
+       <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                url: "https://baohoavien.io.vn",
+                name: "Bảo Hoa Viên",
+              }),
+            }}
+          />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
