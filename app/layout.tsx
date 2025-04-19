@@ -23,7 +23,15 @@ export const metadata: Metadata = {
   other: {
     'google-site-verification': 'zCLIJaB2mZKU71RmNIleCBuYdh_IFczETY3XCAODv-s',
   },
-  keywords: ["Bảo Hoa Viên","Bảo Hoa Viên - Ẩm thực Trung Hoa", "Nhà hàng Bảo Hoa Viên", "Bao Hoa Vien", "Nha hang Bao Hoa Vien"],
+  keywords: [
+    "Bảo Hoa Viên", 
+    "Bảo Hoa Viên Ẩm thực Trung Hoa", 
+    "Nhà hàng Bảo Hoa Viên", 
+    "Bao Hoa Vien", 
+    "Nhà hàng Bao Hoa Vien", 
+    "Bảo Hoa Viên Restaurant",
+    "Ẩm thực Trung Hoa Bảo Hoa Viên"
+  ],
   icons: {
     icon: '/favicon.png', // ← icon của bạn ở đây
   },
@@ -62,6 +70,16 @@ export default function RootLayout({
                 "@type": "WebSite",
                 url: "https://baohoavien.io.vn",
                 name: "Bảo Hoa Viên",
+                "image": "https://baohoavien.io.vn/logo.png",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Hà Nội",
+                  "addressCountry": "VN"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/bao.hoa.vien.2.0.2.4", 
+                  "https://www.google.com/maps/place/B%E1%BA%A3o+Hoa+Vi%C3%AAn-+%E1%BA%A8m+th%E1%BB%B1c+Trung+Hoa/@21.027626,105.821622,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ab668af85e05:0x4d9c7a92812b387f!8m2!3d21.027621!4d105.8242023!16s%2Fg%2F11w4gs5128?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D"
+                ]
               }),
             }}
           />
