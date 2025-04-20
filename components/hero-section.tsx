@@ -4,6 +4,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 // import { Calendar } from "@/components/ui/calendar"
 // import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 // import { format } from "date-fns"
@@ -44,7 +45,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             {/* Sử dụng thẻ a thuần túy với href để đảm bảo hoạt động trên mọi thiết bị */}
-            <a
+            <Link
               href="/menu"
               className="inline-block pointer-events-auto relative z-50"
               onClick={(e) => {
@@ -56,7 +57,7 @@ export function HeroSection() {
               <Button size="lg" className="bg-[#dc141e] hover:bg-[#dc141e]/90 text-white pointer-events-auto cursor-pointer">
                 Xem thực đơn
               </Button>
-            </a>
+            </Link>
 
             {/* <Popover>
               <PopoverTrigger asChild>
