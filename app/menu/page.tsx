@@ -1,31 +1,28 @@
 "use client"
-import { Navbar } from "@/components/navbar"
+
+import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Navbar } from "@/components/navbar"
 import { FoodCard } from "@/components/food-card"
 import menuData from "@/data/menu.json"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useState } from "react"
-
-// const metadata = {
-//   title: "Thực đơn - Bảo Hoa Viên",
-//   description: "Khám phá các món ăn đặc sắc của nhà hàng Bảo Hoa Viên",
-// }
 
 export default function MenuPage() {
-  const [activeTab, setActiveTab] = useState(menuData.categories[0].id);
+  
+  const [activeTab, setActiveTab] = useState(menuData.categories[0].id)
 
   const handleTabChange = (value: string) => {
-    setActiveTab(value);
-  };
+    setActiveTab(value)
+  }
 
   const handleSelectChange = (value: string) => {
-    setActiveTab(value);
-  };
+    setActiveTab(value)
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      
+
       <main className="flex-1">
         <section className="py-8 md:py-16 bg-slate-50 flex justify-center items-center">
           <div className="container px-4 md:px-8">
@@ -35,7 +32,7 @@ export default function MenuPage() {
                 Khám phá các món ăn đặc sắc của Bảo Hoa Viên
               </p>
             </div>
-            
+
             <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
               {/* Mobile Dropdown */}
               <div className="md:hidden w-full mb-4">
@@ -60,14 +57,14 @@ export default function MenuPage() {
                     <TabsTrigger
                       key={category.id}
                       value={category.id}
-                      className="min-w-[120px] rounded-full data-[state=active]:bg-red-600 data-[state=active]:text-white"
+                      className="min-w-[120px] rounded-full data-[state=active]:bg-[#dc141e] data-[state=active]:text-white"
                     >
                       {category.name}
                     </TabsTrigger>
                   ))}
                 </TabsList>
               </div>
-              
+
               {menuData.categories.map((category) => (
                 <TabsContent
                   key={category.id}
@@ -77,6 +74,7 @@ export default function MenuPage() {
                   {category.items.map((item) => (
                     <FoodCard
                       key={item.id}
+                      id={item.id}
                       name={item.name}
                       description={item.description}
                       price={item.price}
@@ -98,4 +96,4 @@ export default function MenuPage() {
       </footer>
     </div>
   )
-} 
+}

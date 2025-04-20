@@ -164,12 +164,12 @@ export default function Home() {
                     {category.items.slice(0, 4).map((item) => (
                       <FoodCard
                         key={item.id}
+                        id={item.id}
                         name={item.name}
                         description={item.description}
                         price={item.price}
                         image={item.image}
-                        badge={item.badge}
-                      />
+                        badge={item.badge}                    />
                     ))}
                   </TabsContent>
                 ))}
