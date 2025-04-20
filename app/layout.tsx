@@ -32,9 +32,19 @@ export const metadata: Metadata = {
     "Bảo Hoa Viên Restaurant",
     "Ẩm thực Trung Hoa Bảo Hoa Viên"
   ],
-  icons: {
-    icon: '/favicon.png', // ← icon của bạn ở đây
-  },
+  icons: [
+    {
+      url: "/favicon.ico",
+      rel: "icon",
+      type: "image/x-icon",
+    },
+    {
+      url: "/favicon64x64.png",
+      rel: "icon",
+      type: "image/png",
+      sizes: "64x64",
+    }
+  ],
   openGraph: {
     title: "Bảo Hoa Viên",
     description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại Bảo Hoa Viên.",
@@ -62,7 +72,8 @@ export default function RootLayout({
   return (
     <html lang="vi">
        <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon64x64.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
