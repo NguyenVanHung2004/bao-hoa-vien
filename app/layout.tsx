@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Bảo Hoa Viên",
-    description: "Trải nghiệm ẩm thực Việt Nam tinh tế tại Bảo Hoa Viên.",
-    url: "https://baohoavien.io.vn",
+    description: "Trải nghiệm ẩm thực Trung Hoa tinh tế tại Bảo Hoa Viên.",
+    url: "https://baohoavien.com.vn",
     siteName: "Bảo Hoa Viên",
     images: [
       {
