@@ -17,7 +17,7 @@ export function HeroSection() {
   return (
     <section className="relative">
       <div className="absolute inset-0 bg-black/60 z-10" />
-      <div className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('/section-2.jpg')" }}>
+      <div className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('/hero-section.png')" }}>
         <div className="relative z-20 flex h-full flex-col items-center justify-center text-center text-white">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Badge className="mb-4 bg-[#dc141e]/80 text-white hover:bg-[#dc141e]/70">Chào mừng đến với</Badge>

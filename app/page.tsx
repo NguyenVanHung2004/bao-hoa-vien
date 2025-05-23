@@ -89,7 +89,7 @@ export default function Home() {
                       <div>
                         <h3 className="font-medium">Địa chỉ</h3>
                         <p className="text-sm text-muted-foreground">114A1 Giảng Võ, Ba Đình, Hà Nội</p>
-                        <p className="text-sm text-muted-foreground">46/52 Tô Ngọc Vân, Tây Hồ, Hà Nội</p>
+                        <p className="text-sm text-muted-foreground">44/52 Tô Ngọc Vân, Tây Hồ, Hà Nội</p>
                       </div>
                     </CardContent>
                   </Card>
