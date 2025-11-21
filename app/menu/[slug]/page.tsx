@@ -8,7 +8,6 @@ import { Clock, Utensils, Star, ArrowLeft, ShoppingCart, Check, StarHalf } from 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer" // Import Footer đồng bộ
 import menuData from "@/data/menu.json"

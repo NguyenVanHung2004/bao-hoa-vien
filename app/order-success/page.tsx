@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { CheckCircle2, ArrowRight, Home, Phone } from "lucide-react"
+import { CheckCircle2, ArrowRight, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -39,7 +39,7 @@ export default function OrderSuccessPage() {
                 
                 <div className="bg-gray-50 p-5 rounded-2xl border border-gray-100 space-y-3">
                   <p className="text-gray-800 font-medium leading-snug">
-                    "Đơn hàng của bạn đã được ghi nhận. Bạn chỉ cần chờ, nhân viên sẽ liên hệ lại ngay để gửi hóa đơn và xác nhận đơn hàng."
+                    Đơn hàng của bạn đã được ghi nhận. Bạn chỉ cần chờ, nhân viên sẽ liên hệ lại ngay để gửi hóa đơn và xác nhận đơn hàng.
                   </p>
                   
                   {/* Dòng thông báo thêm theo yêu cầu */}

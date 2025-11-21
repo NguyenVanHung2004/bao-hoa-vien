@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { ArrowLeft, MapPin, Phone, User, CreditCard, CheckCircle2, ShoppingBag } from "lucide-react"
+import { ArrowLeft, MapPin, Phone, User, CheckCircle2, ShoppingBag } from "lucide-react"
 import { useCart } from "@/lib/cart-context"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"

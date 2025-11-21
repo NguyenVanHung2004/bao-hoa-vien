@@ -22,7 +22,7 @@ export function TestimonialCard({ name, role, content, rating, image }: Testimon
           ))}
           {rating % 1 !== 0 && <StarHalf className="h-4 w-4 fill-brand-red text-brand-red" />}
         </div>
-        <p className="text-gray-600 line-clamp-4 italic leading-relaxed">"{content}"</p>
+        <p className="text-gray-600 line-clamp-4 italic leading-relaxed"> &quot;{content}&quot;</p>
       </CardContent>
       
       <CardFooter className="p-6 pt-0 flex items-center gap-4 mt-auto">
