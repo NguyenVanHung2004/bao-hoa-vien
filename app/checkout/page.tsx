@@ -223,26 +223,10 @@ export default function CheckoutPage() {
                         <Image src="/logo.png" alt="COD" width={32} height={32} className="object-contain" />
                       </div>
                       <div className="flex-1">
-                        <span className="font-bold text-gray-900 block text-base">Thanh toán khi nhận hàng (COD)</span>
-                        <span className="text-sm text-gray-500">Thanh toán bằng tiền mặt cho shipper khi nhận đồ</span>
+                        <span className="font-bold text-gray-900 block text-base">Chuyển khoản ngân hàng</span>
+                        <span className="text-sm text-gray-500">Chúng tôi sẽ sớm gửi thông tin thanh toán cho bạn</span>
                       </div>
                       <CheckCircle2 className="h-6 w-6 text-brand-red opacity-0 peer-data-[state=checked]:opacity-100 transition-all scale-90 peer-data-[state=checked]:scale-100" />
-                    </Label>
-                  </div>
-
-                  <div className="relative opacity-60 grayscale cursor-not-allowed">
-                    <RadioGroupItem value="banking" id="banking" className="peer sr-only" disabled />
-                    <Label
-                      htmlFor="banking"
-                      className="flex items-center gap-4 rounded-2xl border-2 border-gray-100 bg-white p-4"
-                    >
-                      <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
-                        <CreditCard className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <span className="font-bold text-gray-900 block text-base">Chuyển khoản ngân hàng</span>
-                        <span className="text-sm text-gray-500">Tính năng đang bảo trì</span>
-                      </div>
                     </Label>
                   </div>
                 </RadioGroup>
