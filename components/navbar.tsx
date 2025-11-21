@@ -2,198 +2,115 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
-import { ShoppingCart, Menu, Phone, MapPin } from "lucide-react"
+import { useState, useEffect } from "react"
+import { ShoppingCart, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet"
-import { Separator } from "@/components/ui/separator"
 import { useCart } from "@/lib/cart-context"
 import { Badge } from "@/components/ui/badge"
 import { useHasMounted } from "@/hooks/useHasMounted"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 export function Navbar() {
   const { totalItems } = useCart()
   const hasMounted = useHasMounted()
   const router = useRouter()
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  if (!hasMounted) return null // or show skeleton/loading state
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-  const handleLogoClick = () => {
-    router.push("/")
-    setIsOpen(false) // Đóng navbar mobile
-  }
+  if (!hasMounted) return null
 
-  const handleMenuClick = () => {
-    router.push("/menu")
-    setIsOpen(false) // Đóng navbar mobile
-  }
+  const handleLogoClick = () => { router.push("/"); setIsOpen(false) }
+  const isHomePage = pathname === "/"
+
+  // Thay text-black bằng text-gray-800
+  const textColorClass = (isScrolled || !isHomePage) ? "text-gray-800 hover:text-brand-red" : "text-white hover:text-brand-red"
+  const logoBorderClass = (isScrolled || !isHomePage) ? "border-brand-red" : "border-white"
 
   return (
-    <header className="sticky top-0 flex justify-center items-center z-50 w-full border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2 font-bold text-xl text-primary">
-          <div className="flex items-center gap-2 cursor-pointer pl-4" onClick={handleLogoClick}>
-            <Image src="/logo.png" alt="Bảo Hoa Viên Logo" width={40} height={40} className="rounded-full" />
-            <span>Bảo Hoa Viên</span>
+    <header 
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        (isScrolled || !isHomePage) ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
+      )}
+    >
+      <div className="container flex h-14 items-center justify-between px-4 py">
+        <div className="flex items-center gap-3 cursor-pointer" onClick={handleLogoClick}>
+          <div className={cn("relative overflow-hidden rounded-full border-2 transition-all", logoBorderClass, (isScrolled || !isHomePage) ? "h-10 w-10" : "h-12 w-12")}>
+            <Image src="/logo.png" alt="Logo" fill className="object-cover" />
           </div>
+          {/* Thay text-black bằng text-gray-900 */}
+          <span className={cn("font-bold text-xl tracking-tight transition-colors", (isScrolled || !isHomePage) ? "text-gray-900" : "text-white")}>
+            Bảo Hoa Viên
+          </span>
         </div>
-        <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-sm font-medium hover:text-primary">
-            Trang chủ
-          </Link>
-          <Link href="/#about" className="text-sm font-medium hover:text-primary">
-            Giới thiệu
-          </Link>
-          <Link href="/menu" className="text-sm font-medium hover:text-primary">
-            Thực đơn
-          </Link>
-          <Link href="/#testimonials" className="text-sm font-medium hover:text-primary">
-            Đánh giá
-          </Link>
-          <Link href="/#contact" className="text-sm font-medium hover:text-primary">
-            Liên hệ
-          </Link>
+
+        <nav className="hidden md:flex gap-8">
+          {[
+            { name: "Trang chủ", href: "/" },
+            { name: "Giới thiệu", href: "/#about" },
+            { name: "Thực đơn", href: "/menu" },
+            { name: "Liên hệ", href: "/#contact" },
+          ].map((link) => (
+            <Link key={link.href} href={link.href} className={cn("text-sm font-bold uppercase tracking-wider transition-colors", textColorClass)}>
+              {link.name}
+            </Link>
+          ))}
         </nav>
-        <div className="flex items-center gap-4">
+
+        <div className="flex items-center gap-2">
           <Link href="/cart">
-            <Button variant="outline" size="icon" className="relative cursor-pointer">
-              <ShoppingCart className="h-5 w-5 text-[#dc141e] " />
+            <Button variant="ghost" size="icon" className={cn("relative hover:bg-transparent", textColorClass)}>
+              <ShoppingCart className="h-6 w-6" />
               {totalItems > 0 && (
-                <Badge className="absolute -top-2 -right-2 px-1 py-1 h-4 min-w-4 flex items-center justify-center rounded-full bg-[#dc141e]">
+                <Badge className="absolute -top-1 -right-1 px-1.5 h-5 min-w-5 flex items-center justify-center rounded-full bg-brand-red text-white border border-white">
                   {totalItems}
                 </Badge>
               )}
             </Button>
           </Link>
-          <Link href="/menu">
-            <Button variant="outline" size="sm" className="hidden md:flex text-[#dc141e] cursor-pointer">
-              Thực đơn
+          
+          <Link href="/menu" className="hidden md:block">
+            {/* Hover:bg-brand-dark-red thay vì hover:bg-black */}
+            <Button className="bg-brand-red text-white hover:bg-brand-dark-red border-none rounded-full font-bold px-6 transition-colors shadow-md">
+              Đặt món
             </Button>
           </Link>
+
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
+              <Button variant="ghost" size="icon" className={cn("md:hidden", textColorClass)}>
+                <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="p-0 w-[300px]">
-              <div className="flex flex-col h-full">
-                {/* Header */}
-                <SheetHeader className="p-4 border-b flex flex-row items-center justify-between">
-                  <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogoClick}>
-                    <Image src="/logo.png" alt="Bảo Hoa Viên Logo" width={36} height={36} className="rounded-full" />
-                    <SheetTitle className="font-bold text-lg text-primary m-0">Bảo Hoa Viên</SheetTitle>
+            <SheetContent side="right" className="p-0 w-[300px] bg-white border-l border-gray-100">
+               {/* ... Sheet Content giữ nguyên, đảm bảo text-black chuyển thành text-gray-900 ... */}
+               <SheetHeader className="p-6 border-b flex flex-row items-center justify-between">
+                  <div className="flex items-center gap-3" onClick={handleLogoClick}>
+                    <Image src="/logo.png" alt="Logo" width={32} height={32} className="rounded-full" />
+                    <SheetTitle className="font-bold text-lg text-gray-900">Bảo Hoa Viên</SheetTitle>
                   </div>
-                  {/* Không thêm nút đóng tùy chỉnh ở đây, để sử dụng nút đóng mặc định của SheetHeader */}
                 </SheetHeader>
-
-                {/* Navigation */}
-                <nav className="flex-1 overflow-auto py-6 px-4">
-                  <div className="space-y-4">
-                    <div
-                      className="flex items-center py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
-                      onClick={() => {
-                        router.push("/")
-                        setIsOpen(false)
-                      }}
-                    >
-                      Trang chủ
-                    </div>
-                    <div
-                      className="flex items-center py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
-                      onClick={() => {
-                        router.push("/#about")
-                        setIsOpen(false)
-                      }}
-                    >
-                      Giới thiệu
-                    </div>
-                    <div
-                      className="flex items-center py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
-                      onClick={() => {
-                        router.push("/menu")
-                        setIsOpen(false)
-                      }}
-                    >
-                      Thực đơn
-                    </div>
-                    <div
-                      className="flex items-center py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
-                      onClick={() => {
-                        router.push("/#testimonials")
-                        setIsOpen(false)
-                      }}
-                    >
-                      Đánh giá
-                    </div>
-                    <div
-                      className="flex items-center py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
-                      onClick={() => {
-                        router.push("/#contact")
-                        setIsOpen(false)
-                      }}
-                    >
-                      Liên hệ
-                    </div>
-                    <div
-                      className="flex items-center py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
-                      onClick={() => {
-                        router.push("/cart")
-                        setIsOpen(false)
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span>Giỏ hàng</span>
-                        {totalItems > 0 && <Badge className="ml-auto bg-[#dc141e]" >{totalItems}</Badge>}
+                <nav className="flex-1 p-6 space-y-4">
+                   {[
+                      { name: "Trang chủ", href: "/" },
+                      { name: "Giới thiệu", href: "/#about" },
+                      { name: "Thực đơn", href: "/menu" },
+                      { name: "Liên hệ", href: "/#contact" },
+                    ].map((item) => (
+                      <div key={item.href} onClick={() => { router.push(item.href); setIsOpen(false); }} className="block py-2 text-lg font-medium text-gray-800 hover:text-brand-red cursor-pointer border-b border-gray-50">
+                        {item.name}
                       </div>
-                    </div>
-                  </div>
-
-                  <Separator className="my-6" />
-
-                  {/* Contact Info */}
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Phone className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium">+84 96 933 98 58</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <MapPin className="h-4 w-4 text-primary" />
-                      </div>
-                      <div className="text-sm">
-                        <p className="font-medium">Cơ sở Giảng Võ</p>
-                        <p className="text-muted-foreground">114A1 Giảng Võ, Ba Đình</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <MapPin className="h-4 w-4 text-primary" />
-                      </div>
-                      <div className="text-sm">
-                        <p className="font-medium">Cơ sở Tô Ngọc Vân </p>
-                        <p className="text-muted-foreground">44/52 Tô Ngọc Vân, Tây Hồ</p>
-                      </div>
-                    </div>
-                  </div>
+                    ))}
                 </nav>
-
-                {/* Footer */}
-                <div className="p-4 border-t">
-                  <div className="grid gap-2">
-                    <Button className="w-full bg-[#dc141e] text-white hover:bg-primary/90" onClick={handleMenuClick}>
-                      Xem menu
-                    </Button>
-                  </div>
-                </div>
-              </div>
             </SheetContent>
           </Sheet>
         </div>

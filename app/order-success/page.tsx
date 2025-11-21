@@ -1,74 +1,83 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { CheckCircle, Home, List } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/navbar";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
-
-function OrderSuccessContent() {
-  const searchParams = useSearchParams();
-  const orderId = searchParams.get('orderId') || 'Đang xử lý';
-  
-  return (
-    <div className="max-w-md w-full text-center space-y-8">
-      <div className="flex justify-center">
-        <CheckCircle className="h-24 w-24 text-primary" />
-      </div>
-      <h1 className="text-3xl font-bold tracking-tight">Đặt hàng thành công!</h1>
-      <div className="bg-muted/30 rounded-lg p-4">
-        <p className="text-sm font-medium text-muted-foreground">Mã đơn hàng của bạn</p>
-        <p className="text-xl font-bold text-primary mt-1">{orderId}</p>
-        <p className="text-sm text-muted-foreground mt-2">
-          Vui lòng lưu lại mã đơn hàng để tra cứu và đối chiếu khi nhận hàng
-        </p>
-      </div>
-      <p className="text-muted-foreground">
-        Cảm ơn bạn đã đặt hàng tại Bảo Hoa Viên. Chúng tôi sẽ liên hệ với bạn sớm nhất để xác nhận đơn hàng.
-      </p>
-      <div className="pt-4 space-y-3">
-        <Link href="/">
-          <Button className="w-full gap-2">
-            <Home className="h-4 w-4" />
-            Về trang chủ
-          </Button>
-        </Link>
-        <Link href="/menu">
-          <Button variant="outline" className="w-full gap-2">
-            <List className="h-4 w-4" />
-            Xem thêm thực đơn
-          </Button>
-        </Link>
-      </div>
-    </div>
-  );
-}
+import Link from "next/link"
+import { CheckCircle2, ArrowRight, Home, Phone } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function OrderSuccessPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-white">
       <Navbar />
-      <main className="flex-1 flex items-center justify-center p-6">
-        <Suspense fallback={
-          <div className="max-w-md w-full text-center space-y-8">
-            <div className="flex justify-center">
-              <CheckCircle className="h-24 w-24 text-primary" />
-            </div>
-            <h1 className="text-3xl font-bold tracking-tight">Đặt hàng thành công!</h1>
-            <div className="animate-pulse bg-muted/30 rounded-lg p-4">
-              <p className="text-sm font-medium text-muted-foreground">Đang tải thông tin đơn hàng...</p>
-            </div>
-          </div>
-        }>
-          <OrderSuccessContent />
-        </Suspense>
+      
+      <main className="flex-1 flex flex-col items-center justify-center p-4 pt-24 pb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-md"
+        >
+          <Card className="border-none shadow-xl rounded-3xl bg-white overflow-hidden">
+            <CardContent className="p-8 flex flex-col items-center text-center">
+              {/* Icon thành công */}
+              <div className="relative mb-6">
+                <div className="absolute inset-0 bg-green-100 rounded-full animate-ping opacity-75"></div>
+                <div className="relative w-24 h-24 bg-green-50 rounded-full flex items-center justify-center text-green-600">
+                   <CheckCircle2 className="h-12 w-12" />
+                </div>
+              </div>
+
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">Đặt hàng thành công!</h1>
+              
+              <div className="space-y-4 mb-8">
+                <p className="text-gray-600 text-base leading-relaxed">
+                  Cảm ơn bạn đã ủng hộ <span className="font-bold text-brand-red">Bảo Hoa Viên</span>.
+                </p>
+                
+                <div className="bg-gray-50 p-5 rounded-2xl border border-gray-100 space-y-3">
+                  <p className="text-gray-800 font-medium leading-snug">
+                    "Đơn hàng của bạn đã được ghi nhận. Bạn chỉ cần chờ, nhân viên sẽ liên hệ lại ngay để gửi hóa đơn và xác nhận đơn hàng."
+                  </p>
+                  
+                  {/* Dòng thông báo thêm theo yêu cầu */}
+                  <div className="pt-3 border-t border-gray-200">
+                    <p className="text-sm text-gray-500">
+                      Nếu sau 20 phút mà chưa thấy nhân viên liên hệ, vui lòng gọi ngay:
+                    </p>
+                    <a href="tel:0969339858" className="text-brand-red font-bold text-lg block mt-1 hover:underline">
+                      0969339858
+                    </a>
+                     <a href="tel:0969339858" className="text-brand-red font-bold text-lg block mt-1 hover:underline">
+                      0961438338
+                    </a>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full space-y-3">
+                <Link href="/" className="w-full block">
+                  <Button className="w-full gap-2 bg-brand-red hover:bg-brand-dark-red text-white rounded-full h-12 font-bold shadow-md transition-all">
+                    <Home className="h-4 w-4" />
+                    Về trang chủ
+                  </Button>
+                </Link>
+                
+                <Link href="/menu" className="w-full block">
+                  <Button variant="outline" className="w-full gap-2 rounded-full h-12 font-bold border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-brand-red hover:border-brand-red/30">
+                    Đặt thêm món khác <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </main>
-      <footer className="py-6 md:py-0 md:px-8 md:h-24 border-t flex items-center justify-center">
-        <p className="text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Bảo Hoa Viên. All rights reserved.
-        </p>
-      </footer>
+      
+      <Footer />
     </div>
-  );
-} 
+  )
+}

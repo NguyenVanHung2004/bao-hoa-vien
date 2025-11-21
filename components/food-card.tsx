@@ -1,15 +1,15 @@
 "use client"
 
 import type React from "react"
-
 import Image from "next/image"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ShoppingCart } from "lucide-react"
+import { Plus } from "lucide-react"
 import { useCart } from "@/lib/cart-context"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 interface FoodCardProps {
   id: string
@@ -24,56 +24,55 @@ export function FoodCard({ id, name, description, price, image, badge }: FoodCar
   const { addItem } = useCart()
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault() // Ngăn chặn việc điều hướng khi nhấp vào nút
-    e.stopPropagation() // Ngăn chặn sự kiện lan truyền lên các phần tử cha
-
-    addItem({
-      name,
-      description,
-      price,
-      image,
-    })
-
-    // Kiểm tra xem thiết bị có phải là mobile không
+    e.preventDefault()
+    e.stopPropagation()
+    addItem({ name, description, price, image })
     const isMobile = window.innerWidth < 640
-
     toast.success(`Đã thêm ${name} vào giỏ hàng!`, {
-      position: isMobile ? "bottom-left" : "top-left",
-      duration: 2000,
+      position: isMobile ? "bottom-center" : "bottom-right",
+      className: "bg-black text-white border-l-4 border-brand-red"
     })
   }
 
   return (
-    <Link href={`/menu/${id}`}>
-      <Card className="flex flex-col overflow-visible hover:shadow-lg">
-        <div className="relative">
-          <div className="aspect-square md:aspect-[1/1] overflow-hidden">
-            <Image
-              src={image || "/logo.png"}
-              alt={name}
-              width={400}
-              height={400}
-              loading="lazy"
-              quality={80}
-              className="h-full w-full object-cover transition-transform hover:scale-105"
-            />
-          </div>
-          {badge && <Badge className="absolute top-2 right-2 bg-white text-[#dc141e]">{badge}</Badge>}
+    <Link href={`/menu/${id}`} className="group h-full block">
+      <Card className="flex flex-col h-full overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white rounded-2xl">
+        <div className="relative overflow-hidden aspect-square">
+          <Image src={image || "/logo.png"} alt={name} fill loading="lazy" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-brand-red/0 group-hover:bg-brand-red/5 transition-colors duration-300" />
+          
+          {badge && (
+            <Badge className={cn(
+              "absolute top-3 left-3 px-3 py-1 text-[10px] font-bold uppercase tracking-wider border-0 rounded-full shadow-sm",
+              // Badge dùng đỏ hoặc xám đậm, không dùng đen tuyền
+              badge === "Bán chạy" ? "bg-brand-red text-white" : "bg-gray-700 text-white"
+            )}>
+              {badge}
+            </Badge>
+          )}
         </div>
-        <div className="flex flex-col p-2 pb-1.5 md:pt-2  md:px-4">
-          <h3 className="text-sm font-bold line-clamp-1 md:text-base">{name}</h3>
-          <p className="text-xs text-muted-foreground line-clamp-1 md:text-sm">{description}</p>
-          <div className="text-sm font-bold text-primary mt-0.5 md:text-base md:mt-1">{price}</div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full gap-2 text-xs mt-1 h-7 md:h-8 md:text-sm"
-            onClick={handleAddToCart}
-            style={{ WebkitTransform: "translateZ(0)" }}
-          >
-            <ShoppingCart className="h-3 w-3 md:h-4 md:w-4 text-[#dc141e]" />
-            Đặt món
-          </Button>
+        
+        <div className="flex flex-col p-5 flex-1">
+          {/* Tên món: Gray-900 */}
+          <h3 className="font-bold text-base text-gray-900 line-clamp-1 group-hover:text-brand-red transition-colors mb-1">
+            {name}
+          </h3>
+          {/* Mô tả: Gray-500 */}
+          <p className="text-xs text-gray-500 line-clamp-2 mb-4 flex-1">
+            {description}
+          </p>
+          
+          <div className="flex items-center justify-between mt-auto">
+            <span className="font-bold text-brand-red text-lg">{price}</span>
+            <Button
+              size="sm"
+              /* Nút cộng: Hover thành đỏ, không đen */
+              className="h-9 w-9 p-0 rounded-full bg-gray-100 hover:bg-brand-red text-gray-700 hover:text-white transition-all shadow-sm"
+              onClick={handleAddToCart}
+            >
+              <Plus className="w-5 h-5" />
+            </Button>
+          </div>
         </div>
       </Card>
     </Link>
