@@ -38,16 +38,23 @@ export default function Home() {
     {
       name: "Cơ sở Giảng Võ",
       address: "114A1 Giảng Võ, Ba Đình, Hà Nội",
-      phone: "+84 96 933 98 58",
+      phone: "096 933 98 58",
       mapUrl: "https://maps.app.goo.gl/Pdr6eW8qbbj5koKp7",
       image: "/co-so-giang-vo.jpg",
     },
     {
       name: "Cơ sở Tô Ngọc Vân",
       address: "44/52 Tô Ngọc Vân, Tây Hồ, Hà Nội",
-      phone: "+84 96 933 98 58",
+      phone: "096 933 98 58",
       mapUrl: "https://maps.app.goo.gl/kDt9yHzK8zDRVTcL8",
       image: "/co-so-to-ngoc-van.jpg",
+    },
+    {
+      name: "Cơ sở Yên Lãng",
+      address: "48 Yên Lãng, Đống Đa, Hà Nội",
+      phone: "0929 24 26 28",
+      mapUrl: "https://www.google.com/maps/place/48+P.Y%C3%AAn+L%C3%A3ng,+L%C3%A1ng+H%E1%BA%A1,+%C4%90%E1%BB%91ng+%C4%90a,+H%C3%A0+N%E1%BB%99i+100000/data=!4m2!3m1!1s0x3135ab7d3351248d:0x3a2bce319f738026?sa=X&ved=1t:242&ictx=111",
+      image: "/co-so-yen-lang.jpg",
     },
   ]
   return (
@@ -76,8 +83,8 @@ export default function Home() {
                         <Clock className="h-5 w-5 text-[#dc141e]" />
                       </div>
                       <div>
-                        <h3 className="font-medium ">Giờ mở cửa</h3>
-                        <p className="text-sm text-muted-foreground">10:00 - 22:00 hàng ngày</p>
+                        <h3 className="font-medium text-lg ">Giờ mở cửa</h3>
+                        <p className="text-md text-muted-foreground">10:00 - 14:00 và 17:30 - 22:00 hàng ngày</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -87,9 +94,10 @@ export default function Home() {
                         <MapPin className="h-5 w-5 text-[#dc141e] " />
                       </div>
                       <div>
-                        <h3 className="font-medium">Địa chỉ</h3>
-                        <p className="text-sm text-muted-foreground">114A1 Giảng Võ, Ba Đình, Hà Nội</p>
-                        <p className="text-sm text-muted-foreground">44/52 Tô Ngọc Vân, Tây Hồ, Hà Nội</p>
+                        <h3 className="font-medium text-lg">Địa chỉ</h3>
+                        <p className="text-md text-muted-foreground">114A1 Giảng Võ, Ba Đình, Hà Nội</p>
+                        <p className="text-md text-muted-foreground">44/52 Tô Ngọc Vân, Tây Hồ, Hà Nội</p>
+                        <p className="text-md text-muted-foreground">48 Yên Lãng, Đống Đa, Hà Nội</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -99,8 +107,8 @@ export default function Home() {
                         <Phone className="h-5 w-5 text-[#de141e]" />
                       </div>
                       <div>
-                        <h3 className="font-medium">Liên hệ</h3>
-                        <p className="text-sm text-muted-foreground">+84 96 933 98 58</p>
+                        <h3 className="font-medium text-lg">Liên hệ</h3>
+                        <p className="text-md text-muted-foreground">+84 96 933 98 58</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -247,8 +255,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Hai cơ sở nhà hàng */}
-            <div className="grid gap-8 md:grid-cols-2 mb-12 md:mx-8">
+            {/* Ba cơ sở nhà hàng */}
+            <div className="grid gap-8 md:grid-cols-3 mb-12">
               {locations.map((location, index) => (
                 <Card key={index} className="overflow-hidden">
                   <div className="relative h-64 md:h-80 lg:h-96">
@@ -281,7 +289,7 @@ export default function Home() {
                         <Clock className="h-5 w-5 text-[#dc141e]" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium">9:00 - 22:00 hàng ngày</p>
+                        <p className="text-sm font-medium">10:00 - 14:00 và 17:30 - 22:00</p>
                       </div>
                     </div>
                   </CardContent>
@@ -297,60 +305,6 @@ export default function Home() {
                 </Card>
               ))}
             </div>
-
-            {/* <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-start">
-              <div>
-                <ContactForm />
-                <div className="mt-6 flex items-center gap-4">
-                  <Link href="https://www.facebook.com/baohoanviennhahang" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" size="icon">
-                      <Facebook className="h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <Link href="https://www.instagram.com/baohoanvien" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" size="icon">
-                      <Instagram className="h-5 w-5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div> */}
-{/* 
-              <div className="grid gap-4">
-                <Card>
-                  <CardContent className="p-4 flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium">Hotline</h3>
-                      <p className="text-sm text-muted-foreground">+84 96 933 98 58</p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="p-4 flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium">Địa chỉ</h3>
-                      <p className="text-sm text-muted-foreground">114A1 Giảng Võ, Ba Đình, Hà Nội</p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="p-4 flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Clock className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium">Giờ mở cửa</h3>
-                      <p className="text-sm text-muted-foreground">10:00 - 22:00 hàng ngày</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div> */}
-            {/* </div> */}
           </div>
         </section>
       </main>

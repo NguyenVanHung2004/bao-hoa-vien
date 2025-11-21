@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { Trash2, Plus, Minus, ArrowRight, ShoppingBag } from "lucide-react"
+import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, Clock } from "lucide-react"
 import { useCart } from "@/lib/cart-context"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
@@ -52,8 +52,18 @@ export default function CartPage() {
       <Navbar />
       <main className="flex-1 md:py-12 py-6 px-4">
         <div className="container max-w-4xl">
-          <h1 className="text-3xl font-bold mb-6">Giỏ hàng</h1>
-
+          <h1 className="text-3xl font-bold mb-6">Giỏ hàng</h1>  
+          <div className="mb-6 flex gap-3 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm md:text-base">
+            <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-500" />
+            <div className="space-y-1">
+              <p className="font-semibold">
+                Giờ mở cửa: 10:00 – 14:00 và 17:00 – 22:00 hằng ngày.
+              </p>
+              <p className="text-muted-foreground">
+                Nếu bạn đặt ngoài khung giờ trên, chúng tôi sẽ liên hệ lại trong giờ mở cửa gần nhất để xác nhận đơn hàng.
+              </p>
+            </div>
+          </div>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="md:col-span-2 space-y-4">
               {items.map((item) => (
