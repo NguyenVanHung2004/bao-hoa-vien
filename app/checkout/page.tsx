@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation"
 
 export default function CheckoutPage() {
   const router = useRouter()
-  const { items, totalItems, totalPrice, clearCart } = useCart()
+  const { items, totalPrice, clearCart } = useCart()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const deliveryFee = 30
