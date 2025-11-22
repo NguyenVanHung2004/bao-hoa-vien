@@ -19,8 +19,10 @@ import { useRouter } from "next/navigation"
 
 export default function CheckoutPage() {
   const router = useRouter()
-  const { items, totalPrice, clearCart } = useCart()
+  const { items, totalItems, totalPrice, clearCart } = useCart()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  // Thêm state này để chặn redirect về cart khi đặt hàng thành công
+  const [isSuccess, setIsSuccess] = useState(false) 
 
   const deliveryFee = 30
   const totalWithDelivery = totalPrice + deliveryFee
@@ -33,12 +35,12 @@ export default function CheckoutPage() {
     note: "",
   })
 
-  // Redirect nếu giỏ hàng trống
+  // Redirect nếu giỏ hàng trống, NHƯNG bỏ qua nếu đã đặt hàng thành công (isSuccess = true)
   useEffect(() => {
-    if (items.length === 0) {
+    if (items.length === 0 && !isSuccess) {
       router.push("/cart")
     }
-  }, [items.length, router])
+  }, [items.length, router, isSuccess])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -93,7 +95,10 @@ export default function CheckoutPage() {
         className: "bg-white border-l-4 border-brand-red text-gray-900"
       })
       
+      // Đánh dấu là thành công TRƯỚC KHI xóa giỏ hàng
+      setIsSuccess(true)
       clearCart()
+      
       // Chuyển hướng sang trang success
       router.push(`/order-success?orderId=${result.orderId}`)
       
@@ -105,7 +110,8 @@ export default function CheckoutPage() {
     }
   }
 
-  if (items.length === 0) return null
+  // Nếu không có items và chưa success thì return null (tránh flash content trước khi redirect)
+  if (items.length === 0 && !isSuccess) return null
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -300,7 +306,7 @@ export default function CheckoutPage() {
           </form>
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
