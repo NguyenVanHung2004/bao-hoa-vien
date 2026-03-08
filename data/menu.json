@@ -8,21 +8,21 @@
           "id": "sui-cao-heo-cai-thao",
           "name": "Sủi cảo heo cải thảo, bắp",
           "description": "Steamed Pork Dumpling with Napa Cabbage",
-          "price": "39k",
+          "price": "45k",
           "image": "/sui-cao-heo-cai-thao-hap.jpg"
         },
         {
           "id": "sui-cao-heo-he",
           "name": "Sủi cảo heo hẹ",
           "description": "Steamed Pork Dumpling with Chives",
-          "price": "39k", 
+          "price": "45k", 
           "image": "/sui-cao-heo-cai-thao-hap.jpg"
         },
         {
           "id": "sui-cao-tom",
           "name": "Sủi cảo tôm",
           "description": "Steamed Shrimp Dumpling",
-          "price": "49k",
+          "price": "55k",
           "image": "/sui-cao-tom-hap.jpg",
           "badge": "Bán chạy"
         },
@@ -30,13 +30,13 @@
           "id": "sui-cao-bo-hanh",
           "name": "Sủi cảo bò hành",
           "description": "Steamed Beef Dumpling with Onion",
-          "price": "49k",
+          "price": "55k",
           "image": "/sui-cao-heo-cai-thao-hap.jpg"
         }, {
           "id": "sui-cao-heo-cai-thao-chien",
           "name": "Sủi cảo heo cải thảo chiên",
           "description": "Pork Dumpling with Napa Cabbage",
-          "price": "49k",
+          "price": "55k",
           "image": "/sui-cao-chien.jpg"
           
         },
@@ -44,7 +44,7 @@
           "id": "sui-cao-heo-he-chien",
           "name": "Sủi cảo heo hẹ chiên",
           "description": "Fried Pork Dumpling with Chives",
-          "price": "59k",
+          "price": "55k",
           "image": "/sui-cao-chien.jpg"
           
         },
@@ -52,7 +52,7 @@
           "id": "sui-cao-bo-hanh-chien",
           "name": "Sủi cảo bò hành chiên",
           "description": "Fried Beef Dumpling with Onion",
-          "price": "59k",
+          "price": "65k",
           "image": "/sui-cao-chien.jpg",
           "badge": "Bán chạy"
         },
@@ -60,7 +60,7 @@
           "id": "sui-cao-tom-chien",
           "name": "Sủi cảo tôm chiên",
           "description": "Fried Shrimp Dumpling",
-          "price": "49k",
+          "price": "65k",
           "image": "/sui-cao-chien.jpg",
           "badge": "Bán chạy"
         }
@@ -74,56 +74,56 @@
           "id": "mi-sui-cao-bo-hanh",
           "name": "Mì sủi cảo bò hành",
           "description": "Beef Dumpling with Onion Noodle",
-          "price": "49k",
+          "price": "55k",
           "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-tom",
           "name": "Mì sủi cảo tôm",
           "description": "Shrimp Dumpling Noodle",
-          "price": "49k",
+          "price": "55k",
           "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-heo-cai-thao",
           "name": "Mì sủi cảo heo cải thảo, bắp",
           "description": "Pork Dumpling with Napa Cabbage Noodle",
-          "price": "39k",
+          "price": "45k",
           "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-sui-cao-heo-he",
           "name": "Mì sủi cảo heo hẹ",
           "description": "Pork Dumpling with Chives Noodle",
-          "price": "39k",
+          "price": "45k",
           "image": "/mi-sui-cao.jpg"
         },
         {
           "id": "mi-hoanh-thanh",
           "name": "Mì hoành thánh",
           "description": "Wonton Noodle",
-          "price": "49k",
+          "price": "55k",
           "image": "/mi-hoanh-thanh.jpg"
         },
         {
           "id": "mi-xa-xiu",
           "name": "Mì xá xíu",
           "description": "Chinese BBQ Pork Noodle",
-          "price": "49k",
+          "price": "55k",
           "image": "/mi-xa-xiu.jpg"
         },
         {
           "id": "mi-tom-tuoi",
           "name": "Mì tôm tươi",
           "description": "Shrimp Noodle",
-          "price": "59k",
+          "price": "65k",
           "image": "/mi-tom-tuoi.jpg"
         },
         {
           "id": "mi-bo-cay-te",
           "name": "Mì bò cay tê",
           "description": "Spicy Beef Noodle",
-          "price": "59k",
+          "price": "65k",
           "image": "/mi-bo-cay-te.jpg",
           "badge": "Cay"
         },
@@ -131,21 +131,21 @@
           "id": "mi-dac-biet",
           "name": "Mì đặc biệt",
           "description": "Special Noodle",
-          "price": "59k",
+          "price": "65k",
           "image": "/mi-dac-biet.jpg"
         },
         {
           "id": "mi-xao-bo",
           "name": "Mì xào bò",
           "description": "Stir-fried Noodle with Beef",
-          "price": "69k",
+          "price": "75k",
           "image": "/mi-xao-bo.jpg"
         },
         {
           "id": "mi-xao-hai-san",
           "name": "Mì xào hải sản",
           "description": "Stir-fried Noodle with Seafood",
-          "price": "79k",
+          "price": "85k",
           "image": "/mi-xao-hai-san.jpg",
           "badge": "Đặc biệt"
         }
@@ -159,7 +159,7 @@
           "id": "banh-bao-kim-sa",
           "name": "Bánh bao kim sa",
           "description": "Cantonese Spring Rolls",
-          "price": "39k",
+          "price": "45k",
           "image": "/banh-bao-kim-sa.jpg",
           "badge":"Bán chạy"
         },
@@ -167,7 +167,7 @@
           "id": "ha-cao-tom",
           "name": "Há cảo tôm",
           "description": "Shrimp Dumplings",
-          "price": "55k",
+          "price": "60k",
           "image": "/ha-cao-tom.jpg",
           "badge": "Bán chạy"
         },
@@ -175,42 +175,42 @@
           "id": "banh-bao-xa-xiu",
           "name": "Bánh bao xá xíu",
           "description": "Char Siu Bao",
-          "price": "39k",
+          "price": "45k",
           "image": "/banh-bao-xa-xiu.jpg"
         },
         {
           "id": "ha-cao-so-diep",
           "name": "Há cảo sò điệp",
           "description": "Scallop dumpling",
-          "price": "59k",
+          "price": "65k",
           "image": "/ha-cao-so-diep.jpg"
         },
         {
           "id": "chan-ga-hap-tau-xi",
           "name": "Chân gà hấp tàu xì",
           "description": "Chicken feet dimsum",
-          "price": "59k",
+          "price": "65k",
           "image": "/chan-ga-tau-xi.jpg"
         },
         {
           "id": "hoanh-thanh-chien",
           "name": "Hoành thánh chiên",
           "description": "Fried Wontons",
-          "price": "49k",
+          "price": "55k",
           "image": "/hoanh-thanh-chien.jpg"
         },
         {
           "id": "tau-hu-ky-cuon-tom-chien",
           "name": "Tàu hủ ky cuốn tôm chiên",
           "description": "Fried tofu skin roll with shrimp",
-          "price": "49k",
+          "price": "55k",
           "image": "/tau-hu-chien.jpg"
         },
         {
           "id": "xiu-mai",
           "name": "Xíu mại",
           "description": "Siu Mai",
-          "price": "49k",
+          "price": "55k",
           "image": "/xiu-mai.jpg"
         }
       ]
@@ -223,14 +223,14 @@
           "id": "dau-phu-tu-xuyen",
           "name": "Đậu phụ tứ xuyên",
           "description": "Mapo Tofu",
-          "price": "59k",
+          "price": "65k",
           "image": "/dau-tu-xuyen.jpg"
         },
         {
           "id": "ga-cung-bao",
           "name": "Gà cung bảo",
           "description": "Kung Pao Chicken",
-          "price": "89k",
+          "price": "100k",
           "image": "/ga-cung-bao.jpg",
           "badge": "Cay"
         },
@@ -238,7 +238,7 @@
           "id": "ga-cay-trung-khanh",
           "name": "Gà cay trùng khánh",
           "description": "Chongqing Spicy Chicken",
-          "price": "89k",
+          "price": "100k",
           "image": "/ga-cay-trung-khanh.jpg",
           "badge": "Cay"
         },
@@ -246,49 +246,49 @@
           "id": "thit-lon-chua-ngot",
           "name": "Thịt lợn xào chua ngọt",
           "description": "Sweet & Sour Pork",
-          "price": "89k",
+          "price": "100k",
           "image": "/thit-lon-chua-ngot.jpg"
         },
         {
           "id": "ba-chi-hai-lua",
           "name": "Ba chỉ hai lửa",
           "description": "Pork",
-          "price": "89k",
+          "price": "100k",
           "image": "/ba-chi-hai-lua.jpg"
         },
         {
           "id": "bo-xao-cay-te",
           "name": "Bò xào cay tê",
           "description": "Spicy Stir-fried Beef",
-          "price": "89k",
+          "price": "100k",
           "image": "/bo-xao-cay-te.jpg"
         },
         {
           "id": "suon-heo-chua-ngot",
           "name": "Sườn heo xào chua ngọt",
           "description": "Sweet & Sour Pork Ribs",
-          "price": "99k",
+          "price": "110k",
           "image": "/suon-heo-chua-ngot.jpg"
         },
         {
           "id": "thit-xien-dong-bac",
           "name": "Thịt xiên Đông Bắc",
           "description": "Dongbei Skewers",
-          "price": "99k",
+          "price": "110k",
           "image": "/thit-xien-dong-bac.jpg"
         },
         {
           "id": "bo-om-cay",
           "name": "Bò om cay",
           "description": "Beef slices in Spicy Soup",
-          "price": "129k",
+          "price": "140k",
           "image": "/bo-om-cay.jpg"
         },
         {
           "id": "bo-thiet-ban",
           "name": "Bò thiết bản",
           "description": "Chinese Sizzling Beef ",
-          "price": "129k",
+          "price": "140k",
           "image": "/bo-thiet-ban.jpg"
         }
       ]
@@ -328,21 +328,21 @@
           "id": "canh-rong-bien-trung",
           "name": "Canh rong biển trứng",
           "description": "Seaweed Egg Soup",
-          "price": "59k",
+          "price": "65k",
           "image": "/canh-rong-bien-trung.jpg"
         },
         {
           "id": "canh-chua-cay",
           "name": "Canh rong chua cay",
           "description": "Sour & Spicy Soup",
-          "price": "79k",
+          "price": "85k",
           "image": "/canh-chua-cay.jpg"
         },
         {
           "id": "rau-cai-chip-xao",
           "name": "Rau cải chíp xào",
           "description": "Stir-fried Bok Choy",
-          "price": "49k",
+          "price": "55k",
           "image": "/rau-cai-chip-xao.jpg"
         }
       ]
