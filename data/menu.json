@@ -301,7 +301,7 @@
           "id": "com-chien-duong-chau",
           "name": "Cơm chiên Dương Châu",
           "description": "Yangzhou Fried Rice",
-          "price": "55k",
+          "price": "65k",
           "image": "/com-chien-duong-chau.jpg"
         },
         {
@@ -315,7 +315,7 @@
           "id": "com-chien-xa-xiu",
           "name": "Cơm chiên xá xíu",
           "description": "Chinese BBQ Pork Fried Rice",
-          "price": "59k",
+          "price": "65k",
           "image": "/com-xa-xiu.jpg"
         }
       ]
